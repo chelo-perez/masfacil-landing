@@ -220,36 +220,6 @@ blockquote{font-size:clamp(20px,3vw,28px);font-weight:700;color:white;line-heigh
 .quote-author-name{font-size:15px;font-weight:800;color:white}
 .quote-author-role{font-size:13px;color:rgba(255,255,255,.5);margin-top:3px;line-height:1.4}
 
-/* PRICING */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
-.price-card{border:1px solid var(--gray-light);border-radius:16px;padding:36px;position:relative;transition:transform .2s,box-shadow .2s;background:white}
-.price-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(44,49,120,.10)}
-.price-card.featured{background:var(--navy);border-color:var(--navy)}
-.price-featured-label{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--coral);color:white;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;padding:4px 16px;border-radius:100px;white-space:nowrap}
-.price-plan{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:var(--coral);margin-bottom:20px}
-.price-amount{display:flex;align-items:baseline;gap:4px;margin-bottom:4px}
-.price-currency{font-size:18px;font-weight:700;color:var(--navy)}
-.price-card.featured .price-currency{color:rgba(255,255,255,.6)}
-.price-number{font-size:52px;font-weight:900;color:var(--navy);letter-spacing:-2px;line-height:1}
-.price-card.featured .price-number{color:white}
-.price-per{font-size:14px;color:var(--gray-mid);padding-bottom:6px}
-.price-card.featured .price-per{color:rgba(255,255,255,.4)}
-.price-note{font-size:12px;color:var(--gray-mid);margin-bottom:24px}
-.price-card.featured .price-note{color:rgba(255,255,255,.4)}
-.price-divider{height:1px;background:var(--gray-light);margin-bottom:24px}
-.price-card.featured .price-divider{background:rgba(255,255,255,.12)}
-.price-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
-.price-features li{display:flex;align-items:flex-start;gap:10px;font-size:14px;font-weight:600;color:var(--carbon);line-height:1.4}
-.price-card.featured .price-features li{color:rgba(255,255,255,.85)}
-.pf-check{width:18px;height:18px;border-radius:50%;background:#dcfce7;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:11px;line-height:1;color:#16a34a;font-weight:900}
-.price-card.featured .pf-check{background:rgba(255,255,255,.18);color:white}
-.price-btn{display:block;text-align:center;padding:13px;border-radius:100px;font-family:var(--font);font-size:14px;font-weight:800;letter-spacing:.02em;border:2px solid var(--navy);color:var(--navy);background:transparent;transition:all .2s}
-.price-btn:hover{background:var(--navy);color:white}
-.price-card.featured .price-btn{background:var(--coral);border-color:var(--coral);color:white}
-.price-card.featured .price-btn:hover{background:#d96845;border-color:#d96845}
-.pricing-footnote{text-align:center;margin-top:28px;font-size:14px;color:var(--gray-mid)}
-.pricing-footnote a{color:var(--coral);font-weight:700}
-
 /* TESTIMONIOS */
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
 .testi-card{background:white;border:1px solid var(--gray-light);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:20px}
@@ -341,7 +311,6 @@ footer{background:var(--carbon);padding:64px 0 40px}
       <ul class="nav-links">
         <li><a href="#como-funciona">C&oacute;mo funciona</a></li>
         <li><a href="#funcionalidades">Funcionalidades</a></li>
-        <li><a href="#precios">Precios</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
       <div class="nav-actions">
@@ -855,73 +824,7 @@ footer{background:var(--carbon);padding:64px 0 40px}
   </div>
 </section>
 
-<section class="section section-white" id="precios">
-  <div class="wrap">
-    <div class="reveal" style="text-align:center">
-      <div class="eyebrow">Precios</div>
-      <h2 class="section-title" style="margin:0 auto 16px">Simple y predecible.</h2>
-      <p class="section-body" style="margin:0 auto">En USD para que la inflaci&oacute;n no cambie las cuentas. Cobrado en pesos al tipo de cambio del d&iacute;a.</p>
-    </div>
-    <div class="pricing-grid">
-      <div class="price-card reveal">
-        <div class="price-plan">Starter</div>
-        <div class="price-amount">
-          <div class="price-currency">USD</div>
-          <div class="price-number">15</div>
-          <div class="price-per">/mes</div>
-        </div>
-        <div class="price-note">Para estudios con una sede</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><div class="pf-check">&#10003;</div>1 sede</li>
-          <li><div class="pf-check">&#10003;</div>Hasta 150 facturas por mes</li>
-          <li><div class="pf-check">&#10003;</div>Control de monotributo</li>
-          <li><div class="pf-check">&#10003;</div>PDF oficial ARCA</li>
-          <li><div class="pf-check">&#10003;</div>Alertas autom&aacute;ticas</li>
-        </ul>
-        <a href="https://app.masfacil.com.ar/ui/registro" class="price-btn">Empezar gratis</a>
-      </div>
-      <div class="price-card featured reveal">
-        <div class="price-featured-label">M&aacute;s elegido</div>
-        <div class="price-plan">Pro</div>
-        <div class="price-amount">
-          <div class="price-currency">USD</div>
-          <div class="price-number">25</div>
-          <div class="price-per">/mes</div>
-        </div>
-        <div class="price-note">Para estudios con m&uacute;ltiples sedes</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><div class="pf-check">&#10003;</div>Sedes ilimitadas</li>
-          <li><div class="pf-check">&#10003;</div>Facturas ilimitadas</li>
-          <li><div class="pf-check">&#10003;</div>Control de monotributo completo</li>
-          <li><div class="pf-check">&#10003;</div>Reporte mensual para el contador</li>
-          <li><div class="pf-check">&#10003;</div>Alertas por email (certificado, monotributo)</li>
-          <li><div class="pf-check">&#10003;</div>Soporte prioritario</li>
-        </ul>
-        <a href="https://app.masfacil.com.ar/ui/registro" class="price-btn">Empezar gratis &rarr;</a>
-      </div>
-      <div class="price-card reveal">
-        <div class="price-plan">Contador</div>
-        <div class="price-amount">
-          <div class="price-currency">USD</div>
-          <div class="price-number">60</div>
-          <div class="price-per">/mes</div>
-        </div>
-        <div class="price-note">Hasta 8 estudios desde una cuenta</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li><div class="pf-check">&#10003;</div>Dashboard consolidado de clientes</li>
-          <li><div class="pf-check">&#10003;</div>Alertas de monotributo por cliente</li>
-          <li><div class="pf-check">&#10003;</div>Reportes autom&aacute;ticos sin pedirle datos al estudio</li>
-          <li><div class="pf-check">&#10003;</div>Portal propio del contador</li>
-        </ul>
-        <a href="mailto:info@masfacil.com.ar" class="price-btn">Consultar</a>
-      </div>
-    </div>
-    <p class="pricing-footnote">Los primeros 3 meses son gratis, sin tarjeta de cr&eacute;dito. <a href="https://app.masfacil.com.ar/ui/registro">Crear cuenta &rarr;</a></p>
-  </div>
-</section>
+
 
 <section class="section section-off" id="faq">
   <div class="wrap">
@@ -1005,7 +908,6 @@ footer{background:var(--carbon);padding:64px 0 40px}
         <ul>
           <li><a href="#como-funciona">C&oacute;mo funciona</a></li>
           <li><a href="#funcionalidades">Funcionalidades</a></li>
-          <li><a href="#precios">Precios</a></li>
           <li><a href="https://app.masfacil.com.ar/ui/registro">Registrarse</a></li>
         </ul>
       </div>
@@ -1013,7 +915,6 @@ footer{background:var(--carbon);padding:64px 0 40px}
         <h4>Para contadores</h4>
         <ul>
           <li><a href="https://app.masfacil.com.ar/contador/login">Portal contador</a></li>
-          <li><a href="#precios">Plan Contador</a></li>
         </ul>
       </div>
       <div class="footer-col">
