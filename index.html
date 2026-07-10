@@ -42,14 +42,6 @@ nav.scrolled{box-shadow:0 2px 20px rgba(44,49,120,.08)}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
 .hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .3s}
 
-/* TICKER */
-.ticker{background:var(--navy);padding:10px 0;overflow:hidden;white-space:nowrap}
-.ticker-track{display:inline-flex;animation:ticker 30s linear infinite}
-.ticker-track:hover{animation-play-state:paused}
-.ticker-item{display:inline-flex;align-items:center;gap:20px;padding:0 24px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5)}
-.ticker-item span{color:var(--coral);font-size:8px}
-@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
 /* HERO */
 .hero{padding-top:48px;padding-bottom:0;background:var(--white);position:relative}
 .hero::before{content:'';position:absolute;left:40px;top:48px;width:3px;height:calc(100% - 48px);background:var(--coral);border-radius:0 0 3px 3px}
@@ -331,26 +323,6 @@ footer{background:var(--carbon);padding:64px 0 40px}
   </div>
 </nav>
 
-<div class="ticker" style="margin-top:68px">
-  <div class="ticker-track">
-    <div class="ticker-item">Facturaci&oacute;n ARCA <span>&#9642;</span></div>
-    <div class="ticker-item">Control de monotributo <span>&#9642;</span></div>
-    <div class="ticker-item">Emisi&oacute;n masiva en un click <span>&#9642;</span></div>
-    <div class="ticker-item">Alerta de recategorizaci&oacute;n <span>&#9642;</span></div>
-    <div class="ticker-item">Integraci&oacute;n SigueFit <span>&#9642;</span></div>
-    <div class="ticker-item">Reporte para el contador <span>&#9642;</span></div>
-    <div class="ticker-item">PDF oficial ARCA <span>&#9642;</span></div>
-    <div class="ticker-item">Alerta de certificado <span>&#9642;</span></div>
-    <div class="ticker-item">Facturaci&oacute;n ARCA <span>&#9642;</span></div>
-    <div class="ticker-item">Control de monotributo <span>&#9642;</span></div>
-    <div class="ticker-item">Emisi&oacute;n masiva en un click <span>&#9642;</span></div>
-    <div class="ticker-item">Alerta de recategorizaci&oacute;n <span>&#9642;</span></div>
-    <div class="ticker-item">Integraci&oacute;n SigueFit <span>&#9642;</span></div>
-    <div class="ticker-item">Reporte para el contador <span>&#9642;</span></div>
-    <div class="ticker-item">PDF oficial ARCA <span>&#9642;</span></div>
-    <div class="ticker-item">Alerta de certificado <span>&#9642;</span></div>
-  </div>
-</div>
 
 <section class="hero">
   <div class="wrap">
