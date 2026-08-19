@@ -857,7 +857,7 @@ footer{background:var(--carbon);padding:64px 0 40px}
             <input type="tel" id="f_whatsapp" name="whatsapp" required autocomplete="tel" placeholder="11 5555 5555">
           </div>
         </div>
-        <div class="form-row">
+        <div class="form-row" id="row_regimen">
           <div class="form-field">
             <label for="f_regimen">R&eacute;gimen fiscal</label>
             <select id="f_regimen" name="regimen" required>
@@ -867,8 +867,8 @@ footer{background:var(--carbon);padding:64px 0 40px}
               <option value="no_se">No estoy seguro</option>
             </select>
           </div>
-          <div class="form-field">
-            <label for="f_sedes">Cantidad de monotributos</label>
+          <div class="form-field" id="wrap_sedes">
+            <label for="f_sedes" id="lbl_sedes">Cantidad de monotributos</label>
             <select id="f_sedes" name="sedes" required>
               <option value="1">1 monotributo</option>
               <option value="2">2 monotributos</option>
@@ -968,11 +968,35 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
     btn.innerHTML = 'Quiero que me contacten <span class="arrow">&rarr;</span>';
   }
 
+  // Un Responsable Inscripto es siempre un CUIT único: preguntarle cuántos
+  // tiene no aplica. El campo se oculta y queda en 1.
+  var regimen    = document.getElementById('f_regimen');
+  var sedes      = document.getElementById('f_sedes');
+  var wrapSedes  = document.getElementById('wrap_sedes');
+  var rowRegimen = document.getElementById('row_regimen');
+
+  function ajustarSedes(){
+    var esRI = regimen.value === 'responsable_inscripto';
+    wrapSedes.style.display = esRI ? 'none' : 'flex';
+    // Con el campo oculto, el régimen ocupa el ancho completo en vez de
+    // dejar media fila vacía.
+    rowRegimen.style.gridTemplateColumns = esRI ? '1fr' : '';
+    if (esRI) {
+      sedes.value = '1';
+      sedes.removeAttribute('required');
+    } else {
+      sedes.setAttribute('required', 'required');
+    }
+  }
+  regimen.addEventListener('change', ajustarSedes);
+  ajustarSedes();
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
     err.classList.remove('show');
 
-    var campos = ['f_nombre','f_estudio','f_email','f_whatsapp','f_regimen','f_sedes'];
+    var campos = ['f_nombre','f_estudio','f_email','f_whatsapp','f_regimen'];
+    if (regimen.value !== 'responsable_inscripto') campos.push('f_sedes');
     var valido = true;
     campos.forEach(function(id){
       var el = document.getElementById(id);
