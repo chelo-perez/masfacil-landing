@@ -340,6 +340,9 @@ footer{background:var(--carbon);padding:64px 0 40px}
 .price-extra-val{font-size:15px;font-weight:600;color:var(--carbon)}
 .price-extra-val strong{font-weight:900;color:var(--navy)}
 .price-extra-old{font-size:13px;color:var(--gray-mid);text-decoration:line-through;margin-left:4px}
+.price-extra-plus{color:var(--coral)}
+.price-extra-total{margin-top:10px;padding-top:10px;border-top:1px dashed var(--gray-light);font-size:15px;font-weight:600;color:var(--carbon)}
+.price-extra-total strong{font-weight:900;color:var(--navy);font-size:17px}
 .price-extra-note{font-size:12px;font-weight:600;color:var(--gray-mid);margin-top:8px}
 .price-foot{font-size:12px;font-weight:700;color:var(--gray-mid);text-align:center;margin-top:16px}
 
@@ -738,8 +741,15 @@ footer{background:var(--carbon);padding:64px 0 40px}
 
         <div class="price-extra">
           <div class="price-extra-lbl">&iquest;Ten&eacute;s m&aacute;s de un monotributo?</div>
-          <div class="price-extra-val">Abono Multi Monotributo: <strong>$12.600</strong> / mes <span class="price-extra-old">$18.000</span></div>
-          <div class="price-extra-note">Uno solo cubre todos tus monotributos, sin importar cu&aacute;ntos sean.</div>
+          <div class="price-extra-val">
+            Sum&aacute;s el Abono Multi Monotributo:
+            <strong class="price-extra-plus">+ $12.600</strong> / mes
+            <span class="price-extra-old">$18.000</span>
+          </div>
+          <div class="price-extra-total">
+            Total: <strong>$33.600</strong> por mes, IVA incluido
+          </div>
+          <div class="price-extra-note">Un solo adicional cubre todos tus monotributos, sin importar cu&aacute;ntos sean.</div>
         </div>
 
         <a href="#alta" class="btn-cta coral lg" style="width:100%;justify-content:center;margin-top:28px">Empezar con el primer mes gratis <span class="arrow">&rarr;</span></a>
