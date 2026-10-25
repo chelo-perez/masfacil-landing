@@ -4,12 +4,12 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Más Fácil — Facturación electrónica para estudios, gimnasios y talleres</title>
-<meta name="description" content="Emitís todas las facturas ARCA de tu estudio en 5 minutos. Sin errores, sin burocracia. Diseñado para estudios de pilates y yoga, gimnasios y talleres en Argentina."/>
+<meta name="description" content="Emitís todas las facturas ARCA de tu estudio en 5 minutos. Control de monotributo integrado. Diseñado por un CPN para el rubro de actividades físicas en Argentina."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
 <style>
-:root{--navy:#2C3178;--navy-deep:#1e2256;--navy-mid:#3d4499;--coral:#F07B5A;--coral-pale:#fdf1ec;--off-white:#F7F6F4;--carbon:#1A1A2E;--gray-mid:#8B8FA8;--gray-light:#E8E9F0;--white:#FFFFFF;--font:'Nunito',sans-serif;--ease:cubic-bezier(.22,.68,0,1.2);--ease-out:cubic-bezier(0,0,.2,1)}
+:root{--navy:#2C3178;--navy-deep:#1e2256;--navy-mid:#3d4499;--coral:#F07B5A;--coral-pale:#fdf1ec;--coral-mid:#f8e4dc;--off-white:#F7F6F4;--carbon:#1A1A2E;--gray-mid:#8B8FA8;--gray-light:#E8E9F0;--white:#FFFFFF;--green:#22a670;--amber:#e6a817;--font:'Nunito',sans-serif;--ease:cubic-bezier(.22,.68,0,1.2);--ease-out:cubic-bezier(0,0,.2,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--font);background:var(--white);color:var(--carbon);-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -18,14 +18,12 @@ img{display:block;max-width:100%}
 .wrap{max-width:1160px;margin:0 auto;padding:0 40px}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-light);transition:box-shadow .3s}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--gray-light);transition:box-shadow .3s}
 nav.scrolled{box-shadow:0 2px 20px rgba(44,49,120,.08)}
 .nav-inner{height:68px;display:flex;align-items:center;justify-content:space-between;gap:32px}
-.logo{display:flex;align-items:center;gap:2px;flex-shrink:0}
+.logo{display:flex;align-items:center;flex-shrink:0}
 .logo-img-h{height:32px;width:auto;display:block}
 .logo-img-footer{height:28px;opacity:.85}
-.logo-f{font-size:20px;font-weight:400;color:var(--coral);letter-spacing:-.3px}
-.logo-mf{font-size:20px;font-weight:900;color:var(--navy);letter-spacing:-.3px}
 .nav-links{display:flex;gap:36px;list-style:none}
 .nav-links a{font-size:14px;font-weight:700;color:var(--gray-mid);letter-spacing:.01em;transition:color .2s}
 .nav-links a:hover{color:var(--navy)}
@@ -37,32 +35,31 @@ nav.scrolled{box-shadow:0 2px 20px rgba(44,49,120,.08)}
 .btn-cta.coral{background:var(--coral)}
 .btn-cta.coral:hover{background:#d96845}
 .btn-cta.lg{font-size:16px;padding:14px 32px}
+.btn-cta.outline{background:transparent;border:2px solid var(--navy);color:var(--navy)}
+.btn-cta.outline:hover{background:var(--navy);color:var(--white)}
 .btn-cta .arrow{display:inline-block;transition:transform .2s var(--ease)}
 .btn-cta:hover .arrow{transform:translateX(3px)}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
 .hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .3s}
 
 /* HERO */
-.hero{padding-top:64px;padding-bottom:0;background:var(--white);position:relative}
-.hero::before{content:'';position:absolute;left:40px;top:64px;width:3px;height:calc(100% - 64px);background:var(--coral);border-radius:0 0 3px 3px}
-.hero-inner{display:grid;grid-template-columns:1fr 460px;gap:48px;align-items:end}
-.hero-left{padding-left:28px;padding-bottom:80px}
-.hero-label{display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--coral);margin-bottom:32px}
-.hero-display{font-size:clamp(38px,5.5vw,72px);font-weight:900;line-height:1.05;color:var(--navy);letter-spacing:-1.5px;margin-bottom:20px}
-.hero-brand{display:block;white-space:nowrap;color:var(--navy)}
-.hero-brand-f{color:var(--coral)}
-.hero-display em{font-style:normal;color:var(--coral)}
-.hero-sub{font-size:18px;font-weight:400;line-height:1.75;color:var(--gray-mid);max-width:520px;margin-bottom:32px}
+.hero{padding-top:68px;background:var(--white);position:relative;overflow:hidden}
+.hero-inner{display:grid;grid-template-columns:1fr 460px;gap:48px;align-items:end;min-height:calc(100vh - 68px)}
+.hero-left{padding-left:40px;padding-bottom:80px;padding-top:64px;display:flex;flex-direction:column;justify-content:center}
+.hero-display{font-size:clamp(36px,5vw,68px);font-weight:900;line-height:1.05;color:var(--navy);letter-spacing:-1.5px;margin-bottom:24px}
+.hero-brand-f{color:var(--coral);font-weight:400}
+.hero-brand-mf{color:var(--navy);font-weight:900}
+.hero-sub{font-size:18px;font-weight:400;line-height:1.75;color:var(--gray-mid);max-width:480px;margin-bottom:36px}
 .hero-sub strong{color:var(--carbon);font-weight:700}
-.hero-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:28px}
 .hero-link{font-size:14px;font-weight:700;color:var(--navy);border-bottom:2px solid var(--gray-light);padding-bottom:2px;transition:border-color .2s}
 .hero-link:hover{border-color:var(--navy)}
-.hero-trust{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px}
-.trust-item{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--gray-mid)}
+.hero-trust{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--gray-mid)}
 .trust-item svg{color:var(--coral);flex-shrink:0}
 .trust-sep{width:4px;height:4px;border-radius:50%;background:var(--gray-light)}
-.hero-link:hover{border-color:var(--navy)}
 .hero-right{align-self:end;position:relative}
+.hero-accent-line{position:absolute;left:0;top:68px;bottom:0;width:3px;background:linear-gradient(to bottom,var(--coral),transparent);border-radius:0}
 
 /* APP MOCK */
 .app-mock{background:var(--off-white);border-radius:16px 16px 0 0;border:1px solid var(--gray-light);border-bottom:none;overflow:hidden;box-shadow:0 -8px 40px rgba(44,49,120,.10),0 -2px 0 rgba(44,49,120,.04)}
@@ -98,303 +95,314 @@ nav.scrolled{box-shadow:0 2px 20px rgba(44,49,120,.08)}
 .mock-row-cat{font-size:9px;font-weight:600;color:var(--gray-mid);margin-top:1px}
 .mock-row-amt{font-size:11px;font-weight:800;color:var(--navy)}
 .mock-row-badge{font-size:9px;font-weight:800;padding:3px 8px;border-radius:100px;text-align:center}
-.badge-ok{background:#e6f7f0;color:#1a8c5b}.badge-wait{background:#fff4e5;color:#c47a00}
-.mock-bottom{background:var(--navy);margin:0 -20px -20px;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
-.mock-count{font-size:11px;font-weight:700;color:rgba(255,255,255,.55)}
-.mock-emit-btn{background:var(--coral);color:white;font-size:11px;font-weight:800;padding:8px 16px;border-radius:8px;letter-spacing:.02em}
+.badge-ok{background:#dcf5eb;color:#16714a}
+.badge-wait{background:#fff3dc;color:#9a6200}
+.badge-skip{background:#f0f0f5;color:#8B8FA8}
 
-/* NUMBERS */
-.numbers-band{background:var(--off-white);border-top:1px solid var(--gray-light);border-bottom:1px solid var(--gray-light)}
-.numbers-inner{display:grid;grid-template-columns:repeat(3,1fr)}
-.number-cell{padding:48px 40px;border-right:1px solid var(--gray-light);position:relative}
-.number-cell:last-child{border-right:none}
-.number-cell::before{content:'';position:absolute;left:0;top:20%;width:3px;height:60%;background:var(--coral);border-radius:2px}
-.number-big{font-size:clamp(48px,6vw,72px);font-weight:900;color:var(--navy);letter-spacing:-2px;line-height:1;margin-bottom:8px}
-.number-big sub{font-size:.45em;font-weight:700;letter-spacing:0;vertical-align:baseline;color:var(--coral)}
-.number-label{font-size:14px;font-weight:600;color:var(--gray-mid);line-height:1.5;max-width:200px}
+/* MONOTRIBUTO ALERT in mock */
+.mock-alert{background:#fff8e6;border:1px solid #ffd97d;border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:8px}
+.mock-alert-icon{font-size:14px}
+.mock-alert-text{font-size:10px;font-weight:700;color:#9a6200;line-height:1.3}
 
-/* SECTIONS */
-.section{padding:96px 0}
-.section-white{background:var(--white)}
-.section-off{background:var(--off-white)}
-.section-navy{background:var(--navy);color:white}
-.eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--coral);margin-bottom:16px}
-.section-title{font-size:clamp(30px,4vw,44px);font-weight:900;color:var(--navy);letter-spacing:-1px;line-height:1.1;margin-bottom:20px}
-.section-navy .section-title{color:var(--white)}
-.section-body{font-size:17px;font-weight:400;line-height:1.75;color:var(--gray-mid);max-width:560px}
-.section-navy .section-body{color:rgba(255,255,255,.6)}
+/* NUMBERS BAND */
+.numbers-band{background:var(--navy);padding:48px 0}
+.numbers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.number-cell{text-align:center;padding:24px 32px;position:relative}
+.number-cell+.number-cell::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:50%;background:rgba(255,255,255,.15)}
+.number-val{font-size:clamp(44px,6vw,72px);font-weight:900;color:var(--white);letter-spacing:-2px;line-height:1}
+.number-val span{color:var(--coral)}
+.number-label{font-size:14px;font-weight:600;color:rgba(255,255,255,.6);margin-top:8px;line-height:1.4}
+.number-desc{font-size:12px;font-weight:400;color:rgba(255,255,255,.4);margin-top:4px}
 
-/* PROBLEMA */
-.problema-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:64px;border:1px solid var(--gray-light);border-radius:16px;overflow:hidden}
-.problema-card{padding:40px;border-right:1px solid var(--gray-light);border-bottom:1px solid var(--gray-light);position:relative;transition:background .25s}
-.problema-card:nth-child(2n){border-right:none}
-.problema-card:nth-child(3),.problema-card:nth-child(4){border-bottom:none}
-.problema-card:hover{background:var(--off-white)}
-.problema-num{font-size:11px;font-weight:900;letter-spacing:.1em;color:var(--coral);opacity:.7;margin-bottom:20px}
-.problema-card h3{font-size:19px;font-weight:800;color:var(--navy);letter-spacing:-.3px;line-height:1.3;margin-bottom:12px}
-.problema-card p{font-size:15px;font-weight:400;line-height:1.7;color:var(--gray-mid)}
+/* SECTION STYLES */
+section{padding:96px 0}
+.section-eyebrow{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--coral);margin-bottom:16px}
+.section-title{font-size:clamp(28px,4vw,48px);font-weight:900;color:var(--navy);line-height:1.1;letter-spacing:-.5px;margin-bottom:20px}
+.section-sub{font-size:18px;font-weight:400;color:var(--gray-mid);line-height:1.7;max-width:600px;margin-bottom:48px}
 
-/* FLOW */
-.flow-list{margin-top:64px;display:flex;flex-direction:column;gap:0;position:relative}
-.flow-list::before{content:'';position:absolute;left:19px;top:24px;bottom:24px;width:2px;background:var(--gray-light)}
-.flow-item{display:grid;grid-template-columns:40px 1fr;gap:28px;padding:32px 0;border-bottom:1px solid var(--gray-light);align-items:start;position:relative}
-.flow-item:last-child{border-bottom:none}
-.flow-bullet{width:40px;height:40px;border-radius:50%;background:var(--white);border:2px solid var(--gray-light);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--gray-mid);flex-shrink:0;position:relative;z-index:1;transition:all .3s}
-.flow-item:hover .flow-bullet{background:var(--coral);border-color:var(--coral);color:white;transform:scale(1.1)}
-.flow-content h3{font-size:19px;font-weight:800;color:var(--navy);letter-spacing:-.3px;margin-bottom:8px;padding-top:8px}
-.flow-content p{font-size:15px;color:var(--gray-mid);line-height:1.7;max-width:580px}
-.flow-tag{display:inline-block;margin-top:12px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--coral);border:1px solid rgba(240,123,90,.3);padding:3px 10px;border-radius:100px}
+/* PROBLEM SECTION */
+.problem-section{background:var(--off-white)}
+.problem-intro{text-align:center;margin-bottom:64px}
+.problem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.problem-card{background:var(--white);border:1px solid var(--gray-light);border-radius:16px;padding:32px;position:relative;overflow:hidden}
+.problem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--coral)}
+.problem-num{font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--coral);margin-bottom:12px;text-transform:uppercase}
+.problem-title{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:10px;line-height:1.25}
+.problem-body{font-size:15px;font-weight:400;color:var(--gray-mid);line-height:1.6}
+
+/* HOW IT WORKS */
+.how-section{background:var(--white)}
+.how-intro{text-align:center}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:64px}
+.steps-grid::before{content:'';position:absolute;top:32px;left:calc(12.5% + 20px);right:calc(12.5% + 20px);height:1px;background:var(--gray-light);z-index:0}
+.step-item{text-align:center;padding:0 20px;position:relative;z-index:1}
+.step-icon-wrap{width:64px;height:64px;border-radius:50%;background:var(--coral-pale);border:2px solid var(--coral-mid);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative}
+.step-icon-inner{font-size:24px}
+.step-connector{position:absolute;top:50%;right:-50%;width:100%;height:1px;background:var(--gray-light)}
+.step-title{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.step-body{font-size:14px;font-weight:400;color:var(--gray-mid);line-height:1.55}
+.step-badge{display:inline-block;background:var(--coral);color:var(--white);font-size:10px;font-weight:800;padding:2px 10px;border-radius:100px;margin-top:10px}
 
 /* FEATURES */
-.feature-rows{display:flex;flex-direction:column;gap:0}
-.feature-row{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:480px;border-bottom:1px solid var(--gray-light)}
+.features-section{background:var(--off-white)}
+.features-list{display:flex;flex-direction:column;gap:0}
+.feature-row{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:64px 0;border-bottom:1px solid var(--gray-light)}
 .feature-row:last-child{border-bottom:none}
-.feature-text{padding:72px 56px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--gray-light)}
-.feature-row.flip .feature-text{border-right:none;border-left:1px solid var(--gray-light);order:2}
-.feature-row.flip .feature-visual{order:1}
-.feature-text .eyebrow{margin-bottom:12px}
-.feature-text h3{font-size:28px;font-weight:900;color:var(--navy);letter-spacing:-.5px;line-height:1.2;margin-bottom:16px}
-.feature-text p{font-size:16px;color:var(--gray-mid);line-height:1.75;margin-bottom:28px}
-.check-list{list-style:none;display:flex;flex-direction:column;gap:12px}
-.check-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;font-weight:600;color:var(--carbon);line-height:1.4}
-.check-list li::before{content:'\2713';display:flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--navy);color:white;font-size:12px;font-weight:900;flex-shrink:0;margin-top:1px;line-height:1}
-.feature-visual{background:var(--off-white);display:flex;align-items:center;justify-content:center;padding:48px}
+.feature-row.reverse{direction:rtl}
+.feature-row.reverse>*{direction:ltr}
+.feature-tag{display:inline-flex;align-items:center;gap:8px;background:var(--coral-pale);border:1px solid var(--coral-mid);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:800;color:var(--coral);margin-bottom:16px}
+.feature-icon-sm{font-size:16px}
+.feature-title{font-size:clamp(22px,3vw,32px);font-weight:900;color:var(--navy);line-height:1.15;letter-spacing:-.3px;margin-bottom:12px}
+.feature-body{font-size:16px;font-weight:400;color:var(--gray-mid);line-height:1.7;margin-bottom:24px}
+.feature-checks{list-style:none;display:flex;flex-direction:column;gap:10px}
+.feature-checks li{display:flex;align-items:flex-start;gap:10px;font-size:15px;font-weight:600;color:var(--carbon)}
+.check-icon{width:20px;height:20px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.check-icon svg{color:white}
 
-/* FLOW VISUAL */
-.flow-visual{width:100%;max-width:340px}
-.flow-vis-step{background:white;border:1px solid var(--gray-light);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:14px;position:relative}
-.flow-vis-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.flow-vis-icon.a{background:#e8f0ff}.flow-vis-icon.b{background:#fff0eb}.flow-vis-icon.c{background:#e8f7ef}
-.flow-vis-title{font-size:13px;font-weight:800;color:var(--navy)}
-.flow-vis-sub{font-size:11px;font-weight:600;color:var(--gray-mid);margin-top:2px}
-.flow-vis-connector{display:flex;align-items:center;justify-content:center;height:28px;position:relative}
-.flow-vis-connector::before{content:'';display:block;width:1px;height:100%;background:var(--gray-light);margin:0 auto}
-.flow-vis-connector::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--gray-light)}
-.flow-vis-count{margin-left:auto;background:var(--coral-pale);border:1px solid rgba(240,123,90,.2);border-radius:100px;font-size:10px;font-weight:800;color:var(--coral);padding:2px 10px}
+/* FEATURE VISUAL CARDS */
+.feat-visual{background:var(--white);border:1px solid var(--gray-light);border-radius:20px;padding:28px;box-shadow:0 8px 32px rgba(44,49,120,.06)}
+.feat-visual-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.feat-visual-title{font-size:13px;font-weight:900;color:var(--navy)}
+.feat-visual-badge{font-size:10px;font-weight:800;padding:4px 10px;border-radius:100px}
+.fvb-green{background:#dcf5eb;color:#16714a}
+.fvb-amber{background:#fff3dc;color:#9a6200}
+.fvb-blue{background:#eef0ff;color:var(--navy)}
 
-/* MONO CALLOUT */
-.mono-callout{display:flex;align-items:flex-start;gap:12px;background:rgba(240,123,90,.07);border:1px solid rgba(240,123,90,.25);border-left:3px solid var(--coral);border-radius:10px;padding:14px 16px;margin-top:24px}
-.mono-callout-icon{flex-shrink:0;margin-top:1px}
-.mono-callout p{font-size:13px;font-weight:600;color:var(--carbon);line-height:1.6}
-
-/* SEMAFORO */
-.semaforo-vis{width:100%;max-width:340px}
-.sem-card{background:white;border:1px solid var(--gray-light);border-radius:12px;padding:20px}
-.sem-header{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--gray-mid);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--gray-light)}
-.sem-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.sem-row:last-of-type{margin-bottom:0}
-.sem-label{font-size:12px;font-weight:700;color:var(--navy);width:76px;flex-shrink:0}
-.sem-bar-wrap{flex:1;height:8px;background:var(--gray-light);border-radius:100px;overflow:hidden}
-.sem-bar-fill{height:100%;border-radius:100px}
-.fill-green{background:#22a670}.fill-yellow{background:#e6a817}.fill-red{background:#e84545}
+/* Semaforo */
+.semaforo-wrap{display:flex;flex-direction:column;gap:12px}
+.sem-row{display:flex;align-items:center;gap:12px}
+.sem-bar-wrap{flex:1;height:10px;background:var(--gray-light);border-radius:100px;overflow:hidden}
+.sem-bar{height:100%;border-radius:100px;transition:width 1s var(--ease-out)}
+.sem-green{background:var(--green)}
+.sem-amber{background:var(--amber)}
+.sem-red{background:#e53e3e}
+.sem-label{font-size:11px;font-weight:700;color:var(--gray-mid);white-space:nowrap;width:60px;text-align:right}
 .sem-pct{font-size:11px;font-weight:800;width:32px;text-align:right}
-.pct-green{color:#22a670}.pct-yellow{color:#c47a00}.pct-red{color:#e84545}
-.sem-alert{margin-top:16px;background:#fff8f0;border:1px solid rgba(230,168,23,.35);border-radius:8px;padding:10px 14px;font-size:11px;font-weight:700;color:#8a5e00;border-left:3px solid #e6a817}
+.sem-pct.green{color:var(--green)}
+.sem-pct.amber{color:var(--amber)}
+.sem-pct.red{color:#e53e3e}
+.sem-sede{font-size:12px;font-weight:700;color:var(--carbon);width:80px}
+.sem-alert{margin-top:16px;background:#fff8e6;border:1px solid #ffd97d;border-radius:10px;padding:12px 16px}
+.sem-alert-title{font-size:12px;font-weight:800;color:#9a6200;margin-bottom:2px}
+.sem-alert-body{font-size:11px;font-weight:500;color:#b07d00}
 
-/* REPORTE */
-.reporte-vis{width:100%;max-width:340px}
-.rpt-card{background:white;border:1px solid var(--gray-light);border-radius:12px;overflow:hidden}
-.rpt-top{background:var(--navy);padding:18px 20px;display:flex;align-items:center;gap:12px}
-.rpt-avatar{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center}
-.rpt-name{font-size:13px;font-weight:800;color:white}
-.rpt-role{font-size:10px;color:rgba(255,255,255,.5);margin-top:1px}
-.rpt-body{padding:18px 20px}
-.rpt-kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
-.rpt-kpi{background:var(--off-white);border-radius:8px;padding:12px}
-.rpt-kpi-v{font-size:20px;font-weight:900;color:var(--navy);letter-spacing:-.5px;line-height:1}
-.rpt-kpi-l{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-mid);margin-top:4px}
-.rpt-chart-lbl{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-mid);margin-bottom:10px}
-.rpt-chart{display:flex;gap:3px;align-items:flex-end;height:52px}
-.rpt-bar{flex:1;border-radius:3px 3px 0 0;background:var(--gray-light)}
-.rpt-bar.active{background:var(--navy-mid)}.rpt-bar.curr{background:var(--coral)}
-.rpt-labels{display:flex;gap:3px;margin-top:6px}
-.rpt-lbl{flex:1;text-align:center;font-size:8px;font-weight:700;color:var(--gray-mid)}
-.rpt-lbl.curr{color:var(--coral)}
+/* Source badges */
+.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.source-card{background:var(--off-white);border:1px solid var(--gray-light);border-radius:12px;padding:14px;display:flex;align-items:center;gap:10px}
+.source-card.active{border-color:var(--coral);background:var(--coral-pale)}
+.source-icon{font-size:22px}
+.source-label{font-size:12px;font-weight:800;color:var(--navy)}
+.source-sub{font-size:10px;font-weight:500;color:var(--gray-mid);margin-top:1px}
+.source-status{font-size:9px;font-weight:800;padding:2px 8px;border-radius:100px;margin-top:6px}
+.ss-connected{background:#dcf5eb;color:#16714a}
+.ss-manual{background:#eef0ff;color:var(--navy)}
+
+/* Reporte contador */
+.report-rows{display:flex;flex-direction:column;gap:8px}
+.report-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--off-white);border-radius:10px;border:1px solid var(--gray-light)}
+.rr-name{font-size:12px;font-weight:700;color:var(--carbon)}
+.rr-stats{display:flex;gap:16px;align-items:center}
+.rr-stat{text-align:right}
+.rr-stat-val{font-size:13px;font-weight:900;color:var(--navy)}
+.rr-stat-lbl{font-size:9px;font-weight:600;color:var(--gray-mid)}
+.rr-badge{font-size:9px;font-weight:800;padding:3px 8px;border-radius:100px}
 
 /* QUOTE */
-.quote-section{padding:88px 0;background:var(--navy)}
-.quote-inner{max-width:800px}
-.quote-mark{font-size:80px;font-weight:900;color:var(--coral);line-height:.8;margin-bottom:24px;opacity:.8}
-blockquote{font-size:clamp(20px,3vw,28px);font-weight:700;color:white;line-height:1.5;letter-spacing:-.3px;margin-bottom:36px}
-.quote-author{display:flex;align-items:center;gap:16px}
-.quote-avatar{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;overflow:hidden}
-.quote-author-name{font-size:15px;font-weight:800;color:white}
-.quote-author-role{font-size:13px;color:rgba(255,255,255,.5);margin-top:3px;line-height:1.4}
+.quote-section{background:var(--navy);padding:80px 0}
+.quote-inner{max-width:800px;margin:0 auto;text-align:center;padding:0 40px}
+.quote-mark{font-size:80px;line-height:.8;color:var(--coral);opacity:.4;font-family:Georgia,serif;margin-bottom:16px}
+.quote-text{font-size:clamp(20px,3vw,28px);font-weight:700;color:var(--white);line-height:1.5;margin-bottom:32px;letter-spacing:-.2px}
+.quote-author{display:flex;align-items:center;gap:16px;justify-content:center}
+.quote-avatar{width:52px;height:52px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:white;flex-shrink:0}
+.quote-meta-name{font-size:15px;font-weight:800;color:var(--white);text-align:left}
+.quote-meta-role{font-size:13px;font-weight:500;color:rgba(255,255,255,.5);text-align:left;margin-top:2px}
 
-/* TESTIMONIOS */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
-.testi-card{background:white;border:1px solid var(--gray-light);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:20px}
-.testi-stars{display:flex;gap:3px}
-.star{width:14px;height:14px;background:#f5c242;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
-.testi-text{font-size:16px;font-weight:400;line-height:1.7;color:var(--carbon);flex:1}
-.testi-author{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--gray-light)}
-.testi-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+/* TESTIMONIALS */
+.testi-section{background:var(--white)}
+.testi-intro{text-align:center}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.testi-card{background:var(--off-white);border:1px solid var(--gray-light);border-radius:16px;padding:28px;position:relative}
+.testi-stars{display:flex;gap:3px;margin-bottom:14px}
+.testi-star{color:var(--coral);font-size:14px}
+.testi-quote{font-size:15px;font-weight:500;color:var(--carbon);line-height:1.65;margin-bottom:20px;font-style:italic}
+.testi-author-row{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:white;flex-shrink:0}
 .testi-name{font-size:14px;font-weight:800;color:var(--navy)}
-.testi-studio{font-size:12px;color:var(--gray-mid);margin-top:2px}
+.testi-role{font-size:12px;font-weight:500;color:var(--gray-mid);margin-top:1px}
 
 /* FAQ */
-.faq-wrap{max-width:720px;margin:64px auto 0}
+.faq-section{background:var(--off-white)}
+.faq-intro{text-align:center;margin-bottom:48px}
+.faq-grid{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:0}
 .faq-item{border-bottom:1px solid var(--gray-light)}
-.faq-item:first-child{border-top:1px solid var(--gray-light)}
-.faq-trigger{width:100%;padding:22px 0;display:flex;justify-content:space-between;align-items:center;background:none;border:none;cursor:pointer;text-align:left;gap:20px}
-.faq-q-text{font-size:16px;font-weight:700;color:var(--navy);font-family:var(--font);transition:color .2s}
-.faq-trigger:hover .faq-q-text{color:var(--coral)}
-.faq-icon{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--gray-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gray-mid);font-size:16px;transition:all .25s;font-family:var(--font)}
-.faq-item.open .faq-icon{background:var(--coral);border-color:var(--coral);color:white;transform:rotate(45deg)}
-.faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.faq-item.open .faq-answer{max-height:300px}
-.faq-answer-inner{padding-bottom:22px;font-size:15px;line-height:1.75;color:var(--gray-mid)}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:20px 0;font-family:var(--font);font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-q svg{flex-shrink:0;transition:transform .3s;color:var(--coral)}
+.faq-item.open .faq-q svg{transform:rotate(45deg)}
+.faq-a{font-size:15px;font-weight:400;color:var(--gray-mid);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
+.faq-item.open .faq-a{max-height:400px;padding-bottom:20px}
 
-/* CTA FINAL */
-.final-cta{background:var(--off-white);border-top:1px solid var(--gray-light);padding:112px 0;text-align:center}
-.final-cta .section-title{max-width:600px;margin:0 auto 20px}
-.final-cta .section-body{margin:0 auto 48px;text-align:center}
-.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;align-items:center}
-.cta-secondary{font-size:14px;font-weight:700;color:var(--gray-mid);border-bottom:2px solid var(--gray-light);padding-bottom:2px;transition:color .2s,border-color .2s}
-.cta-secondary:hover{color:var(--navy);border-color:var(--navy)}
+/* FINAL CTA */
+.final-cta{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 50%,var(--navy-mid) 100%);padding:96px 0;text-align:center;position:relative;overflow:hidden}
+.final-cta::before{content:'';position:absolute;top:-120px;right:-120px;width:400px;height:400px;border-radius:50%;background:rgba(240,123,90,.08);pointer-events:none}
+.final-cta::after{content:'';position:absolute;bottom:-80px;left:-80px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
+.cta-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(240,123,90,.15);border:1px solid rgba(240,123,90,.3);border-radius:100px;padding:8px 18px;font-size:12px;font-weight:800;color:var(--coral);letter-spacing:.05em;text-transform:uppercase;margin-bottom:24px}
+.final-cta-title{font-size:clamp(28px,4.5vw,52px);font-weight:900;color:var(--white);line-height:1.1;letter-spacing:-.5px;margin-bottom:16px}
+.final-cta-sub{font-size:18px;font-weight:400;color:rgba(255,255,255,.6);margin-bottom:40px;line-height:1.6}
+.final-cta-actions{display:flex;align-items:center;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-cta.white{background:var(--white);color:var(--navy)}
+.btn-cta.white:hover{background:var(--off-white)}
+.btn-cta.ghost{background:transparent;border:2px solid rgba(255,255,255,.3);color:var(--white)}
+.btn-cta.ghost:hover{border-color:white;background:rgba(255,255,255,.08)}
+.final-trust{display:flex;align-items:center;gap:16px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+.ft-item{font-size:13px;font-weight:600;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px}
 
 /* FOOTER */
-footer{background:var(--carbon);padding:64px 0 40px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
-.footer-brand .logo{margin-bottom:16px}
-.footer-brand p{font-size:14px;color:rgba(255,255,255,.35);line-height:1.7;max-width:240px}
-.footer-brand .entity{margin-top:16px;font-size:12px;color:rgba(255,255,255,.2)}
-.footer-col h4{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.3);margin-bottom:20px}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
-.footer-col a{font-size:14px;font-weight:600;color:rgba(255,255,255,.5);transition:color .2s}
+footer{background:var(--carbon);padding:48px 0 32px}
+.footer-inner{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand p{font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;margin-top:12px}
+.footer-col h4{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.3);margin-bottom:16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col a{font-size:14px;color:rgba(255,255,255,.5);font-weight:500;transition:color .2s}
 .footer-col a:hover{color:white}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.2);flex-wrap:wrap;gap:8px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer-copy{font-size:13px;color:rgba(255,255,255,.25);font-weight:500}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
-.reveal.visible{opacity:1;transform:translateY(0)}
+/* MOBILE MENU */
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);z-index:190;flex-direction:column;padding:32px 40px;gap:8px;overflow-y:auto}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:18px;font-weight:700;color:var(--navy);padding:12px 0;border-bottom:1px solid var(--gray-light)}
+.mobile-menu .mobile-cta{margin-top:16px;text-align:center}
 
 /* RESPONSIVE */
 @media(max-width:1000px){
-  .hero::before{display:none}
-  .hero-inner{grid-template-columns:1fr}
-  .hero{padding-top:80px;padding-bottom:32px}
+  .hero-inner{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding-left:0;padding-top:48px;padding-bottom:0}
   .hero-right{display:none}
-  .hero-left{padding-left:0;padding-bottom:32px}
-  .numbers-inner{grid-template-columns:1fr 1fr 1fr}
-  .feature-row{grid-template-columns:1fr;min-height:unset}
-  .feature-text{padding:48px 40px;border-right:none !important;border-left:none !important;border-bottom:1px solid var(--gray-light)}
-  .feature-visual{min-height:300px}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .feature-row{grid-template-columns:1fr;gap:32px}
+  .feature-row.reverse{direction:ltr}
+  .steps-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+  .steps-grid::before{display:none}
+  .problem-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;gap:32px}
+  .numbers-grid{grid-template-columns:1fr}
+  .number-cell+.number-cell::before{display:none}
 }
 @media(max-width:700px){
   .wrap{padding:0 20px}
-  .nav-links{display:none}
+  section{padding:64px 0}
+  .hero-left{padding-top:40px;padding-bottom:48px}
+  .hero-accent-line{left:0}
+  nav .nav-links,.nav-actions .nav-login,.nav-actions .btn-cta.desktop-only{display:none}
   .hamburger{display:flex}
-  .nav-actions .nav-login{display:none}
-  .numbers-inner{grid-template-columns:1fr}
-  .number-cell{padding:36px 24px;border-right:none;border-bottom:1px solid var(--gray-light)}
-  .number-cell:last-child{border-bottom:none}
-  .number-cell::before{display:none}
-  .problema-grid{grid-template-columns:1fr}
-  .problema-card{border-right:none}
-  .pricing-grid{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}
-  .testi-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr}
-  .section{padding:64px 0}
-  .feature-text{padding:40px 20px}
+  .hero-actions{flex-direction:column;align-items:flex-start}
+  .btn-cta.lg{width:100%;justify-content:center}
+  .numbers-grid{grid-template-columns:1fr 1fr}
+  .number-cell:nth-child(3){grid-column:1/-1}
+  .number-cell+.number-cell::before{display:none}
+  .final-cta-actions{flex-direction:column;align-items:center}
+  .footer-bottom{flex-direction:column;text-align:center}
 }
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}}
 </style>
 </head>
 <body>
 
-<nav id="nav">
+<!-- NAV -->
+<nav id="main-nav">
   <div class="wrap">
     <div class="nav-inner">
       <a href="/" class="logo">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApMAAABqCAYAAADgFNoFAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAH+5JREFUeNrsnUFT3DbYxxUm1wzwfgG29PyWzaQ948yQc+h0kivLJTmyObThFnMLzSGbY7iwXMtksjmXmSznlunSe8nyBV5g+gF4/cDjRgjZlmzJa3v/vxnPwq7tlSWt9NcjPY/uXF5eimng359/mrv35sO5AAAAAAAAzpiZFiEZvQyj1z6KHAAAAAAAYtKWYXQsRcdaJCh7KHYAAAAAAIhJG5akv9sodgAAAAAAiEkAAAAAADBh7vq8+Xc//EpWQJpWXpbe3ouO8O8/fhkj+wEAAAAA6o03yyQLyaEiJIm16BhFn7eQ/QAAAAAA9canZXIQHbMJn9H7/egIXH4he213M05rReeFynvn9958gGMOAAAAAIAld3zEmfzuh1870cuu9NaFuLZSPlZO/fHvP34ZOBSS9B1LOW+xFwnKDqoEAAAAAIA5vqa5V9X/I9FI7z1U3ncp3roFhCRBYYMCVAkAAAAAgMmLSTn8zmkkJIf0B78eS589dvWF9958CMW1c09e1qN7DFElAAAAAAAmLyYXpL9VgXZjWvu7H34NHArKjri2fqqHzLHm8/vRtX1UBwAAAAAAO5w74GjE4Vj5n8TlK+n/tkZwFhGUt+71788/yf+ewwIJAAAAAOCGMoKWnyv/j5T/51AMAAAAAAAQk0mM5X/+/uMXVVwGKAYAAAAAAIjJGNXSeK455xhZDwAAAAAAMamjbXDOecnPKXt591HsAAAAAADVFZM3LJNxWKBJwl7eJCjX4bUNAAAAAOAOH9sptqv4oNjdBgAAAACgHmKyJf196Oqm3/3wK92XBGEgvU2e4b2///hljKIEAAAAAGiGmJQDlhcWeZGIpGnzMDo2NB8vk8CMzmlDUAIAAAAA1FxMGgQst70fiUjac3s25TT6bBCdG++sQ9bKcSQuRyheAAAAAIAaiUlxe73k0PA8VUR2xLU1csHwe5f4kO9xSkI0EpUDFDMAAAAAgB9ce3OrInGkEYotcdPSOJY+C6KDrtnVCMmL6NiKjvlIIN6JXr/JSAtd/zG63yqKGQAAAADADz4tkxea3W50gnPIArMvrtdA6qCwPqGyLtI0VmUYHbBOAgAAAADUQEzKU81JaxYD5f+OuLZE6iBv8G7C+kfV4viCv3OOhemsJk0AAAAAAMAhzqa5Nc43w4RTVcukzhpJ6x0fRiIy0AlJ8t6OXnrK230KkM5rJLua8wEAAAAAgGNcWiZbyv9JlsnllHvQukiyRPZTRGtH3LZk7ilT6mPl8zkUNQAAAABAtcVkqvMNx4vspYhI+qyXsM4yvgdZHN/qBCjEIwAAAABAvcWkvIbxQnaWYQcbmn7WrV/UOdfohGQ/elnTCMlAI0BvrKeswv7gAAAAAAAQk8lCLxA3Q/kMpM9I2JEQVAOPk3NNx0BEkpVxqBGixyQa1ev5/DXlPAAAAAAAUFUxKa49soUqJnkHm1ea87ciERgaiNQ2C0mdEF1NmBLv6dJSJf79+aeV6OXBBJOwc+/NhzNUfwDcwEtwspbXjNPWg5eUTmpTTWLvDrCL2NTUXaq3AR9trsex8YZm/+J6QH3xEDN9U1c/2hlt24i02J3Ly8uiX9SKXr5Ib51yhSQRpzrbXLAIHBrclwSqLmTQu+j6rmFaiG+qtm93JCb/iV4WJ5iEzUhMbuNnAoCTxpYE4prh6YcUpWJC6SQR+dHw9HgJEQRlc+st9ZchDy5mLS694P49rFrfCpzXkSQdJkOzv4GL0ECh8j8JxbFGSNIXtg2FZD/hAdaThGRCWvYqWtkXUU0BaERjG1gISWJZE0atLHoW585ang/qVW+pr/zCdXfW8vJZvu5LdB/UkWaza3AOWbG7dwtWyDlNQ6prWEnUdQzvNxR6R51PGSGDWprvDlEXAAAVg9qx1gQsDAvI+qkXkWl9bB42yPgDCzYoapnsZnxO5vB1QyFJU+OjlEqeJQxDjYAdo4gBABVjgcVdmWBgDSHpWkjGBMhdMFOwYqaJSVo7GZgsOOe1PMOUkfNx2shHY5W8QOMJAKgwpbVPsEoCpu9BSMbrJ8GUU2Sam9ZKJK21+CSuw/6cGzR0dJ8Ngx9BGqqo7cEqmQo8uQGYLFfWyZK8u2s5sGaDRdJWuCOT/gX8l5dB9PLYw63R14L8YjJhfWLMi6hy9ZTzV7lRIOsihRY4TwlkTiOdsfJ+1sgnUK6v86LgnejY9ykk7735cISqD8DECQ0GykVFREfU0CqZEp/4v3aexTisYpMbUJyahPgrMJAIUwYTNJDoT3v5SzsLyh75p/zb6ZU54MprmdSJtVthf7hB6KmNWfT+O3Edm1JtKI5ZGA6UCps18pGF57DmI9aTSOwdoO0DoPGUYZ0Ma5o3aUJS8GdtgSlWE8HRErejq7ig47n8TSypgyku17j+q4NF+p/ie6+SRbosPXQ3xwPoCvlKBMaJZrWcVhl009r/xY+Mrpcr/jgjPYHyFrzKAAB1IRSerJM1t0qahKsZovoY0c5xzR4LlXPpHgH36dTf930FL2f9YCIkp7av5zwaZPy+l/g30i4jTXctH4AavbUkESg1BH1hHruKLJpp0xUjyx8KGhgAQF3waZ0Ma5onJjv0HGInFm9i8qEmb+n/XoXKv+7L2YrSNRwoLpW1NttYTCYIyT1FSCY50xyywKSRsmpuH2cIwCwT7RxGK6Bs/v35p2fRy7zmI2xVCfKIPqeNfc09uE3ERAfVxgtbFRDpJuXfm3IHrMAyP6shJnnfWZ2Q7PDnLZHsTBNKDjl9zfY8V6bYAnP7LfkfePiBEoQk7av+PuUUbFUJbPBhnQzrmBGGU9yIIeyPwYTL32SKmxxMpn3nHZs1sHNlJGjGoHBJ/L1NEZJJwcbj7RN7itijBnNdOTcWlHNZYjHj82O0BaAE5pEFwDHOxF/NrZKdjM/JQNFFdfFDBXayMbFKhjAaXQnqSjFj0CjtpghJev1LM5KkdZTtpNGjpaBsWTwPrJIAgDriclecsI4ZYGiV6kFINJqs38BhSbFZq46N6B9PVEwmCMlDSUj2NJ/TqPFHeR1lyggoSVD2LVX3UPp7GXUMAFBTCovAqF2mezR1raS3uIagEoOJlkEfjvLnQVXVBpczCYW6qhGKNIVMcYvmooME3Ibm88AmiGiCoHxs2RieK2kPUM8AADWkkHXSYIvbuotJCIlmk1X+n+DB/592onzYMzh1q6z1xTOaBonWQPZ1QlFcTzmPNKOHQxaSoxyZohOUMq2MW6iVq4OqBgCoKUUEEwnJ2YbmyydMbzaeOYP6Db5qJ9I671JOeVGmJX9GIySHSoMUC0lKOK2PVK2GtIayUJR1biReJI3WM64lAXtqMboBAICqkss62QCrZGwIeKg57kftPNr15tNjcXSoHGSB+wYe/Fr9Q7/5b6JjiwZcnFcvOL9K9Xi/aygkSd3q4keum4wWedo8Pkh00lT4DY8sevDoPPrzreb6dobVcyClb5bDDA1R1QAANYTa277lNbW3SnJ/gHZ7eoXRuYD1MU++jUUFloDMSKPagdIYXYivU8aqkDzl0WI/RUAGFOg8OqiCfBTXcSrp/gt8vzGLTDlTSEnrpryHGWsh1XWaGMUCAOrKAjvSGNEQqyQAoMbMSCPhBUVIxmsgW8o1ZErVWgrJgkhe3tFBSvmzJCB10Psf1SmdhDWUdO7npAaWrZAX0lsBihaA6kCB3jnYOzCjmxB3V3uuaMhaybo5UHKfh/4GTD13/vf7bRKLX5T378tikX8sZO0bqNPH7M5Pn5EoXMqZjlvT5QnT7sTV1oya88k6Kccom69qPLKoU71M+Xjz3psP2xVM85Po5QEfK5pTjqRjX7elYHSPFb5epfAWhNG9F6MXOY2LyilnnLYDOqLvOzIVQZrnpXs/S7jkgI8kzqLv3sn4zvmE+x9F1x44yCMVKq8TwzqwaFJ+XNZPOO/kax7ZPoNl2Ro9i2Px89nT7beyFtCz4Bx7EpMUCi7wlG9xvxHwoUv/MfcBfdV4YWiNdRqTUkozHUkhbE65PKg/Gk4iCLhG3HbE7R3skniY8tnY5bpFzk9Ka1vo9w8fcR4OkoS8SHfaGfnUAJzPcfp16RhLzzAqqaxvUHS5X3T/S9O2isQk/SDfWjZgNgKSGoQ+C9FxytaLOkGZdG78o+3HDYYmLuaPNmGKKiQmfUAC5n9ypvUlC5tFy0tJMG3LHXvKc5MYeV5AIL1MEXdJnHD6soTd/wn3O96kDhg4z18nfPy9qRDW3PefhHIkcf3IQFT/mfU8fN7rhAGHlZgsULYHXLYHvn9YnsUkzba00jpEnq155en7nYtJbtNDC3Ej9yO0zn7AQnJo2PcERQUFfx+leSPH5fHWf/0yjBu0tCxH3trUx6CoMOK+uiPM40JfiK9+FmPpHrtllH/CIMZ2NuCGXimxrP/bZMa3mJwRt9cX9pIykQqQLYBfWIAupWRc7FF0taViXAnold4Tt2Mk7fJIQ1bVY1b+unhKC9yIjjlT1RFTW4CYebYU2QiPByw+XucQkoIFwD8sjLLIc39KI6XtnxxiI/7O99E9fs+Yfq3a1olF0rPo83vZcvl7ipAsq2zp+6lcf2Mrb12ZFSnWt7qtlWTh+yWn2KG+5iP3P4EwmwVbKpo/0gzZRs5bLHBfSf1U13P+dj0Kybg+Dgukr8UxqneF3QYjs/xcX6SlbrtllL8mf8esO2Zz1INYr4QllvVaWcsw7mpGoucJjdY4IwMvWHn3DUcuXRZ8cqNAjjZd2ULJ6YlFbFdTCeOKpmZsKRnYRKIOmDrw945u95pFxiOH6Ztn0eJiDV4sPDazrJQgffARvfxWsbK9mhqP7vk0rzXXA4eWHSmtnUyyZuSxjoxFyTuFcf9BbfpjB7d7XFbbLjmmuthRiMopFHY7l9gyV0K2zObMy1WuA0WXY7wqe42qVA+WHeXfK86PIlbTOVEx1KDlrYTz0ioBWQ1pSnmOYh6ZmsA5E6lSHCsZvauLs0bTGzzlcl+YRX6HZXLyQjLmAQuEqgnJGLrne352kC//fq9o2S7yYKEqzj89cdNZ0KTz6SZ0cLZWl3BCzzxwJCQLCZoc9IXbrSlnp9FZh/vzjw7LbbnEtMdLKlx/JxnRhhZOdpVnRtycHl7gKWOT0TV5XJOTSyfv2sQEQSlYUIYJ14x4DUAcqPMi5YeLEEF2nfkDCyFJTg9Xa9OiY5P/PsoQlFUUGzLv2YqqPidI56VIngaP60l8nEygbOdZUC5WIK/Ohb11SufZbW2VnMQOMmRVFSVbQh2lu+1YAMdlMJwyIUn5uFvTtJuuzYWgFNfT3NTAyFPENMculEWbHfF1O8WBS48udp4JNIX2iitiR2cKjgN1cmO1Km6HN4qtAAMBRFInrnTmJtOUSc4N29J9nrDAcN15vzcQG1fe5ELyfGYRQQdNaT8T6ev/nvD1MU813+nVm7sh0DPuWEwvW5Ut1+cz8dW7O/YcTxOUVL+/r0De9LhNNbV6xdbJUOrkKm+V5HZ9o6b1t+PhnqGYIqTp4boSehSSsqCc40FmvcUkjZSiQv+kjMICVfD5rBSSoOwr6XjMyr2TNH3OaaPr+hrPI7K0rlbVqzunGMmFQbiULI9t6rgz1xVyiJidSMBRp/9a5HOg0IndONRMWvqeR9+/n/DsdBxE99nmNL1OyPvnyrW3yoPTkigmqxjaqUSoHJ7aeFIXKVupbHb4Pu9T6jGtn3w56fLh9i60tNjIaydrYZUUftcH+sb1MqnTKdxbvCvcLhNo5ECoKdtE3pVGYfJ0XukPx43kKlsaNxTl/lf0/guDvSZPNZW3U7PRUelihK2JWV7Xj2ycGFhUPo/uLRwJyvcZYsMofZyu7ShddC5ZqmIrJVlbNwUoKiQf5XB2cVW2NFggy2PadPnL6JzCcU0dtHd9FpRW1kluH+tilVyaknp/GhsvJlwGZVi3LgzLv+67MpX1m1lvyo9gRhJyMsscD8xl49IyuSdvXL6uqbRvKaxA0j248up+zI+btMjVE09E+tTvZl5vWI4fuV9Q7KqBrwsJ3Vh4iGsPc3p9CiHpBGuvaddlyyLxkUhe6xovw6hjhxVPddfBKtnJKVTikHJ36BDXa+PXJcFWRSFJ4e9anN4fxW0H0eMyyoCNLXsev+IqzqThuasin8PNMdeBh3zE+XlRVoHy8jrf63zpeR42yVothwZSp7qpMvQcFMwNt3paj8k/QJq2DnXT1zxqp/f7yuiW7jHi6Z5QFqp8blrFbkyheSBtrZkLS+lmwQ487dqdAkL3SDgMWTTl7OQMEv7E9SCGBCWFehLJFk/6zomvW81pnbSdegsn9Hi2zo/aANM8BUhtd99zQO68zMn9Cy+pGnAcQHp/WOY0Jvs6dJQ+mOrAK8Pr70yo/ElcdRPE1cBxeB7XAyFySO7Jy+lYkCbFgqS6vtqU6e0YOTSQKhxDNYh4gYJRK8CC+LoecjWhUo94FPRO06CSc86Y9wEfiutAuGmVLBAgr5gs3OnymsUdT+nbRvFVgm0PZbtfoM5RfTvL8Z1l41PsTcqDuy3srFJGO5WwUDos6TFMO/o4nN1VMOp45oyehfK+aYLBAts+dzWtrnJ+BiWVv03aaYeZQPXLkKLO3Bc3rap7XNcbVy9mpIcfipsm8lkWez7jNdJ3fGRROJdQgUjdk7n7VCNINxJEpDotgpiTCfB6yfmUTnnf0VcVuU/SNOhRmfswg0SKlIPPst1PqfeVEJTcgfqawg0n9Fi2y4q6FsGbOyU9g60Ij3c4+cLLsabWgMF9uc1gYssiZFJH+J/yNl3re5y1VSGLyjm2+N7nUIrnTSx3NWh5V9wOIl5UUPYNCp9E4SjpB8gVjdLwLmskLq4DqPeVkeWSAEmkhWNx5lWed5/kjE7/CMVXDTHpoWxd1L00MVqlbRZ9iL5Jeg/bCKljm9iLbNH5VILIpzTltYKRgePzFItKW73Qtyx/bw61lr4iPcs6NWpyoc8oD5u0K80grxML39Mk0xf4B9jXFahkpbwvbgc5FywiW5K5eShA04FVsrnl4MLbOk3kLlYl8zxZJ8Oa1J1RSdfkoSOKWcFiUdlDE5E6mBhbXuMzOkurIumot5hMEZQLRTKOnWV+NPxhxhu6J4lKMhu3VUGZFUvS83Q9AABURfzVKabhOMc1pYhJFjmBA6G/Ybiz3DRyXtI1PurHOYovRUxKmaSOypaTtjg0zPgBq37TKYpYVI54YTPFoAz4oHTIU9cmP/YxihuAqWKxLgl1bJ0Ma1RG7ZKuyVsuI/6+oiF31mChBFMnJqUfUUd5+1WRNSA8VU3e2y8STtFZLkk00sJm2ij+Mx9qmAPdqG8Oowgj0qYTna0rK7Avclr6HqD4Glv3XJRtWv2t4npbFyKwClZJm7Y2T3+yWubDcL9FfSEtsXpXQPRvuI7f3ACWcyyhC6qQ8KRINBCT+h/RQNx2eukXDQLOwVV1kd+H0bEl7NapHMsxJycxeq0zGXH8HhQQgSorPtKHEmxu3fNc586qlh+OrJNhBR7FZhp6lrbLtejAAzEhh0peYkWe5yQIadlWHkegzhT8tMeeBwcdj2U8rOqgptZikjNX9fBecNFgccOpCsrH3BC1+LOsH+uebpTCYlcOGXSIok4lrVN3tVtIkfskefYuViXES4nkshZH+fSkos/jpWx5EJR0/VneQPclUKRtrcpaSds1jT2TNe3crlfh+a4MLTzL9o1l/xI0vYHK4VDTMzVQ8VIB3/t9mw7o1rIGQvRc0TFgz/6xzcCpcWIyYSSw4SLkATd8W8rb/fgz+rHG8ZnEdazJdR4R0t/zKTGb1BEDvK7ydejES45FmRsWMiu+0lcwbYs1K6u8FruVOta9AvdNu3a/qoVb0DoZVuQZzi2fIQ5BF6R0yiQ2hyUICfV7Q163f8lOoW1VOHEw7WN0Izc4zFH+rYyyIMPWRglpH1qcu8t1ZE6T3lUeWJGRbJnr7m5T187eNWwc6MdEok9eq3j1wyq6FpGmqLkRWZYqVlduGHPEZ+pCTFqxn9L5kpB8HR3PC4i19w7S9zpJJEXf8TLPlo/RdZSuZ9FrvD+3i6lPF9OzaVazZ+J6e0qb53zA11W17jkt2+iaZxnPu1/x3yO1fbu21pSKeXAPLDt+avcpjM4hGxTG/D4JDOofSt9Gkfsluc+jNJA16pgFx4jT2RJ2IWWmAdutD2npwoiF1iDu81mkBdynL5eYdpv6RnWky1tADzm9rZSBzwYPSlab5MthapmMw/s4n+5mOqoYzLsukwtJXlNzOMVbWhnBU35pFqJnLLzyCMnfREFHHoPtGF+T6LBI13wsJGPREh1/sugySU9aXq0UteRm3H/e9lkdiHmfdc912T7LeN6DvAH0yyKndTKs2GPktb4ss5COnS13JyQk06bUl1go70ppnBWgqAFnloXZX2wJvhTXa5s/ligkY1+R0xxpX+b0L4tsC/oyi+fG+HbMWJ7fSVDYRQuPxJ66lWPexa2qVbKP37URWdYuEpS/mQol7tT/FO6cZLZFutMEiY7fs9bZSelSLVeLLChNLXhJgbpjS26iwKY0GuTjflGBxWL+d1F9R6XCZcv5+t5AONdlL3cbcVi5uJKaNr1uhMLPlPpwGjqThpS/bxaaVB/uWlYQ7XS3cOM5HSoj0I6tEOTRpCxCL2oUvHeikHUy6oypo00TKVdrH6PzSOiQdedAnhrmzj6eUl10nL6T6P6bGWJhhdMXW1plgfKAP88ScXTOjkGSDkTyVOozzot9KQ0rnCeLknhPEzY7It1p6TV/x466fzqLyCdclvM1qHs2ZXvCeX8iifcVQ8G8WXWrpNTW9jmeromgCSv6GCG3x7Wy2vH0tq+1edO05KqW5S/9/sgw5TtyAEUzmGvCdPfdHNf0WOjFjdwSZTqH+yk0kuG1KHHh5TFrd5SKiyCxdp36piQIk5hnEfWMhYvp7c9E8enuHRZKWVa5ByKfNY5EqOna0H2Rvi4vK50raWKSRA+v5VwxEFiCxdWJqK6jjauyXRT51n/u5FlXO2Ha3Ia10jpsy3AmZXbIY+6Qd2uW74Gn+x42fX/mhpR/TOxA41MMUxhEMoLVXkzO5Kgg8e44Nxq0orEndaO2HB7jmOIuziPhPqDzGd/XieAVZpbDPELykakTDlu4ili5TETfU2EeD3Ex456bVa94HsuWhOTzuv0Q42DZ5C2ccgwr/gzUBm/VLOvHnkTD1MUl5PLfq2naxzywuPD4NZ2m+HTM5MxkasDkGJCzwo0VMHfDyMJTnhL6BMebXB16LPxcdepnLNKOHKaRhIFLcbBvIyQVgZbbAzxrfadUFicOxNR2Teqf67LdrqOQbJigCIV+k4q8+A7DQ/2Qy9jEJEaCad2FjXcP2nOcn2WlfeRJUNL9HrKzTyOYKXBtV8ngNQexJ0dSQ3Es7ILfdpT/+2jG8wtKqVMvEi6HBOm3PgJE07Ro9PK9KGYdpGd7Ht0rV1ggfq5HBfLogeF3fC/yh7PZrJuYclS2JzxA8G2RPfd8/iRxlla2UFF84CI7/FB/80LcnoFy+gxS7Mh1UXxHIhKlrWma3k4RlOsORBnpgnbJaY83UnE1wKD7tKs+q1CamGSrX8+lgOORW8CjGOORHE+xy847pxVX/GnCoDI7c3Cn/q24tsCZWsfOJBH5XBFpSfc4yJm+o+h4xILORmzFayO/5WcskkdHnEc7FqKSrtkWhtZfFvdPLZ8zLoNtg3pnUrYnKc934qHu5S3bAx4gfFuGsw13NKZWt/UKiIquYYd+LBxvW0edJ29FaCvSKL1bLMp63AmbWLr2iqzl540zKL15tk4kwfCQlyJMegAxMCzzPc+/lT6Lsjzfc8q/n7aFp/iFcOTwxEtOAq4LeS3jx/wMgYNZ055hOmyNcnnqxFU+37m8vCz0RByoU/Z42krYK9sbHGn+4yTTMA1IW9SRI43smRx32keT9JblcDuy882KJN7OWPQccWxDX2mIHZjmpXQcSOk4KhocnZ9T9g5fFF8dcK68nR0FYK9S3TMp24k9N4dIS1s3fl4V6xTvNNLKOG3kWwRxngVsadKlh0TjMMmCkzUT5tryI0ULaQu9dWzMHfegakus4iDZGfWzV2J64ryM83MhQQjFdWCguUc34zc38PWb4/zscNqXU0RWHMjceVo4D7Os9L2iv2PTfHYhJukH/VnJwHaZPyYOoSGHK7o/7dMKAAAAQJ1gPTGuo79DPEhr2vS1KYXFJGdiX9ycZj5kk/BExCTv5w0AAAAAADwz4+g+6jqcZZ56ntQIoY2iBQAAAACoiZjkOflbMR4dxZ7MwxyKFgAAAACgJmKSBWVf3HSdp9iTZXlUj1GUAAAAAAA1FpNMR9ye7u5PQEximhsAAAAAoG5ikj2w1OnuNXYtLxNMcwMAAAAA1E1MsqDsi9uBLt96dopBGCAAAAAAgCaISRaUHY2g9BYQVROUE9PcAAAAAAB1FZMMTW3LW2YtO9i72xRMcwMAAAAA1FlMsrUwVN7ueHyWY4hJAAAAAICGiEkWlH1x0zrZ8vE9bPGU9wdfQtECAAAAANRcTDJj6e9lD0KSrJDqesxjFC0AAAAAgH/ulvAdQ08isiWup9Fp28ZZ5eMQRQsAAAAA0AwxqYrA9t9//DLKeW2LxWNHJE9lb0X3H6BoAQAAAACaISbHyv9WzjG8HjJgEZm2FpJ23ulASAIAAAAANFtMdiKBONLEhowtj20+SECaTI+Tgw+tmezr7gkAAAAAAPxx5/Ly0usXsIPMmUYA9vlvEo5zwm5dJVkhyQI5gCUSAAAAAKDBYpIFJQnHtYK3iQXkkEUkrJAAAAAAABOmLAecvGLykMXjMBKPQxQXAAAAAEC1KMUySbAjDYnKBc3HNO09ZuFIr6O8Ht8AAAAAAKCBYlISlS3BO+HA2ggAAAAAUG/+X4ABAHueelKt5RgEAAAAAElFTkSuQmCC" alt="Facturo Más Fácil" class="logo-img-h">
+        <img src="data:image/png;base64,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" alt="Facturo Más Fácil" class="logo-img-h"/>
       </a>
       <ul class="nav-links">
-        <li><a href="#como-funciona">C&oacute;mo funciona</a></li>
+        <li><a href="#como-funciona">Cómo funciona</a></li>
         <li><a href="#funcionalidades">Funcionalidades</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="https://app.masfacil.com.ar/ui/login" class="nav-login">Iniciar sesi&oacute;n</a>
-        <a href="https://app.masfacil.com.ar/ui/registro" class="btn-cta">Empezar gratis <span class="arrow">&rarr;</span></a>
+        <a href="https://app.masfacil.com.ar/login" class="nav-login">Ingresar</a>
+        <a href="https://app.masfacil.com.ar/registro" class="btn-cta coral desktop-only">Probar gratis →</a>
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-      <button class="hamburger" id="hamburger" aria-label="Men&uacute;">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </div>
 </nav>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#como-funciona" onclick="closeMobileMenu()">Cómo funciona</a>
+  <a href="#funcionalidades" onclick="closeMobileMenu()">Funcionalidades</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+  <div class="mobile-cta">
+    <a href="https://app.masfacil.com.ar/registro" class="btn-cta coral lg">Probar 1 mes gratis →</a>
+  </div>
+</div>
 
+<!-- HERO -->
 <section class="hero">
+  <div class="hero-accent-line"></div>
   <div class="wrap">
     <div class="hero-inner">
       <div class="hero-left">
         <h1 class="hero-display">
-          Menos tiempo en ARCA.<br>M&aacute;s tiempo en tu Estudio.<br><span class="hero-brand"><span class="hero-brand-f">Facturo</span> M&aacute;s F&aacute;cil.</span>
+          Menos tiempo en ARCA.<br>
+          Más tiempo en tu Estudio.<br>
+          <span class="hero-brand-f">Facturo</span> <span class="hero-brand-mf">Más Fácil.</span>
         </h1>
         <p class="hero-sub">
-          Import&aacute;s los cobros de <strong>tu sistema de gesti&oacute;n</strong>, el sistema decide qu&eacute; facturar y emit&iacute;s todo de un click.<br>
+          Importás los cobros, el sistema decide qué facturar<br>
+          y emitís todo de un click.<br>
           <strong>Sin errores, sin horas perdidas.</strong>
         </p>
         <div class="hero-actions">
-          <a href="https://app.masfacil.com.ar/ui/registro" class="btn-cta coral lg">
-            Probar 1 mes gratis <span class="arrow">&rarr;</span>
-          </a>
-          <a href="#como-funciona" class="hero-link">Ver c&oacute;mo funciona</a>
+          <a href="https://app.masfacil.com.ar/registro" class="btn-cta coral lg">Probar 1 mes gratis <span class="arrow">→</span></a>
+          <a href="#como-funciona" class="hero-link">Ver cómo funciona</a>
         </div>
-
         <div class="hero-trust">
           <div class="trust-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Sin tarjeta de cr&eacute;dito
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            Sin tarjeta de crédito
           </div>
           <div class="trust-sep"></div>
           <div class="trust-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
             Integrado con ARCA
           </div>
           <div class="trust-sep"></div>
           <div class="trust-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
             Desarrollado por un CPN
           </div>
         </div>
       </div>
-
       <div class="hero-right">
         <div class="app-mock">
           <div class="app-mock-bar">
             <div class="mock-dots">
               <div class="mock-dot" style="background:#ff5f57"></div>
-              <div class="mock-dot" style="background:#febc2e"></div>
+              <div class="mock-dot" style="background:#ffbd2e"></div>
               <div class="mock-dot" style="background:#28c840"></div>
             </div>
             <div class="mock-url-bar">
-              <span class="mock-url-text">app.masfacil.com.ar</span>
+              <span class="mock-url-text">app.masfacil.com.ar — Studio Belgrano</span>
             </div>
           </div>
           <div class="app-mock-body">
             <div class="mock-sidebar">
               <div class="mock-nav-item active">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#F07B5A" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
               </div>
               <div class="mock-nav-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,.5)" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
               </div>
               <div class="mock-nav-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              </div>
-              <div class="mock-nav-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              </div>
-              <div class="mock-nav-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,.5)" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
               </div>
             </div>
             <div class="mock-main">
-              <div class="mock-page-title">Studio Belgrano &mdash; Caballito &middot; Junio 2026</div>
+              <div class="mock-page-title">Caballito &nbsp;·&nbsp; Junio 2026</div>
               <div class="mock-kpis">
                 <div class="mock-kpi">
                   <div class="mock-kpi-lbl">Facturado</div>
@@ -434,14 +442,10 @@ footer{background:var(--carbon);padding:64px 0 40px}
                   <div class="mock-row-badge badge-wait">Efectivo</div>
                 </div>
                 <div class="mock-row">
-                  <div><div class="mock-row-name">Ana Mart&iacute;nez</div><div class="mock-row-cat">Mensualidad</div></div>
+                  <div><div class="mock-row-name">Carlos Benitez</div><div class="mock-row-cat">Mensualidad</div></div>
                   <div class="mock-row-amt">$24.500</div>
-                  <div class="mock-row-badge badge-ok">Emitida</div>
+                  <div class="mock-row-badge badge-skip">Excluido</div>
                 </div>
-              </div>
-              <div class="mock-bottom">
-                <span class="mock-count">124 listas para emitir</span>
-                <div class="mock-emit-btn">Emitir todo</div>
               </div>
             </div>
           </div>
@@ -451,313 +455,352 @@ footer{background:var(--carbon);padding:64px 0 40px}
   </div>
 </section>
 
+<!-- NUMBERS BAND -->
 <div class="numbers-band">
-  <div class="numbers-inner wrap" style="max-width:1160px">
-    <div class="number-cell reveal">
-      <div class="number-big">8<sub>hs</sub></div>
-      <div class="number-label">ahorradas por mes en facturaci&oacute;n</div>
-    </div>
-    <div class="number-cell reveal">
-      <div class="number-big">5<sub>min</sub></div>
-      <div class="number-label">para emitir todas las facturas del mes</div>
-    </div>
-    <div class="number-cell reveal">
-      <div class="number-big">0</div>
-      <div class="number-label">errores en la recategorizaci&oacute;n cuando el sistema est&aacute; activo</div>
+  <div class="wrap">
+    <div class="numbers-grid">
+      <div class="number-cell">
+        <div class="number-val"><span>8</span>hs</div>
+        <div class="number-label">ahorradas por mes</div>
+        <div class="number-desc">en tareas de facturación manual</div>
+      </div>
+      <div class="number-cell">
+        <div class="number-val"><span>5</span>min</div>
+        <div class="number-label">para emitir todas las facturas</div>
+        <div class="number-desc">desde que importás hasta que confirmás</div>
+      </div>
+      <div class="number-cell">
+        <div class="number-val"><span>0</span></div>
+        <div class="number-label">errores en la recategorización</div>
+        <div class="number-desc">alertas automáticas al 80% y 90% del tope</div>
+      </div>
     </div>
   </div>
 </div>
 
-<section class="section section-white" id="problema">
+<!-- PROBLEMA -->
+<section class="problem-section">
   <div class="wrap">
-    <div class="reveal">
-      <div class="eyebrow">El problema</div>
-      <h2 class="section-title">Facturar no deber&iacute;a<br>hacerte perder tanto tiempo.</h2>
-      <p class="section-body">Cada mes, el due&ntilde;o de un estudio pierde horas en una tarea repetitiva que no agrega valor. Exportar del sistema de gesti&oacute;n, armar el Excel, entrar a ARCA, emitir una por una. Eso si no hay errores.</p>
+    <div class="problem-intro">
+      <div class="section-eyebrow">El problema</div>
+      <h2 class="section-title">Facturar no debería hacerte<br>perder tanto tiempo</h2>
+      <p class="section-sub" style="margin:0 auto">Cada mes, el dueño de un estudio pierde horas en una tarea repetitiva que debería resolverse sola.</p>
     </div>
-    <div class="problema-grid">
-      <div class="problema-card reveal">
-        <div class="problema-num">01</div>
-        <h3>Horas perdidas en facturaci&oacute;n manual</h3>
-        <p>Exportar pagos, revisar uno por uno, entrar a Comprobantes Online, emitir de a una. Todo eso puede reemplazarse con un bot&oacute;n.</p>
+    <div class="problem-grid" style="margin-top:48px">
+      <div class="problem-card">
+        <div class="problem-num">01</div>
+        <div class="problem-title">Horas perdidas en facturación manual</div>
+        <div class="problem-body">Revisar cada cobro, entrar a ARCA uno por uno, cargar los datos a mano. Un error y tenés que anular y reemitir. Para un estudio con 80 alumnos, eso es más de 3 horas cada mes.</div>
       </div>
-      <div class="problema-card reveal">
-        <div class="problema-num">02</div>
-        <h3>Monotributo sin control: el riesgo que no se ve</h3>
-        <p>La recategorizaci&oacute;n te sube los impuestos. La exclusi&oacute;n te saca del r&eacute;gimen simplificado con efecto retroactivo. Sin un sistema que lo monitoree, te enter&aacute;s cuando ya es tarde.</p>
+      <div class="problem-card">
+        <div class="problem-num">02</div>
+        <div class="problem-title">Monotributo sin control: el riesgo que nadie mide</div>
+        <div class="problem-body">¿Cuánto facturaste este año? ¿Cuánto te falta para cambiar de categoría? Si no tenés esa información en tiempo real, el riesgo de exclusión del monotributo es real — y las consecuencias son graves.</div>
       </div>
-      <div class="problema-card reveal">
-        <div class="problema-num">03</div>
-        <h3>Compartir facturas, uno por uno, a mano</h3>
-        <p>Despu&eacute;s de emitir, mand&aacute;s cada factura por mail o WhatsApp manualmente. Con M&aacute;s F&aacute;cil, se env&iacute;a autom&aacute;ticamente al alumno al momento de la emisi&oacute;n.</p>
+      <div class="problem-card">
+        <div class="problem-num">03</div>
+        <div class="problem-title">Transferencias, MercadoPago, efectivo: tres canales, un caos</div>
+        <div class="problem-body">Tus alumnos pagan de distintas formas. Identificar quién pagó qué, decidir si factura o no, y no perder ningún cobro es un trabajo aparte que se repite cada mes.</div>
       </div>
-      <div class="problema-card reveal">
-        <div class="problema-num">04</div>
-        <h3>Compartir facturas con los alumnos: otro cuello de botella</h3>
-        <p>Despu&eacute;s de emitir, ten&eacute;s que mandar cada comprobante a mano. Con M&aacute;s F&aacute;cil, el alumno recibe su factura por mail o WhatsApp autom&aacute;ticamente.</p>
+      <div class="problem-card">
+        <div class="problem-num">04</div>
+        <div class="problem-title">Tu contador siempre llega tarde a los datos</div>
+        <div class="problem-body">Cuando el contador necesita saber cómo vas en el año, tenés que armar un resumen a mano o esperar que él llame. Sin visibilidad en tiempo real, los problemas se detectan cuando ya es tarde.</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section-off" id="como-funciona">
+<!-- CÓMO FUNCIONA -->
+<section class="how-section" id="como-funciona">
   <div class="wrap">
-    <div class="reveal">
-      <div class="eyebrow">C&oacute;mo funciona</div>
-      <h2 class="section-title">Cuatro pasos,<br>una vez por mes.</h2>
+    <div class="how-intro">
+      <div class="section-eyebrow">El proceso</div>
+      <h2 class="section-title">Cuatro pasos, una vez por mes</h2>
+      <p class="section-sub" style="margin:0 auto">Así de simple es el proceso. Sin conocimientos técnicos, sin depender de nadie.</p>
     </div>
-    <div class="flow-list">
-      <div class="flow-item reveal">
-        <div class="flow-bullet">1</div>
-        <div class="flow-content">
-          <h3>Export&aacute;s los pagos de tu sistema</h3>
-          <p>Descarg&aacute;s el Excel con los cobros del mes desde tu CRM o sistema de gesti&oacute;n. Un archivo, dos clics.
-          Si tu sistema exporta a Excel, funciona.</p>
-          <span class="flow-tag">Cualquier CRM &rarr; Excel</span>
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-icon-wrap">
+          <div class="step-icon-inner">📥</div>
         </div>
+        <div class="step-title">Importás los cobros</div>
+        <div class="step-body">Exportás desde tu sistema de gestión o conectás MercadoPago directamente. Sin copiar y pegar.</div>
+        <div class="step-badge">Automático con API</div>
       </div>
-      <div class="flow-item reveal">
-        <div class="flow-bullet">2</div>
-        <div class="flow-content">
-          <h3>Import&aacute;s en M&aacute;s F&aacute;cil</h3>
-          <p>Sub&iacute;s el archivo. El sistema clasifica cada pago autom&aacute;ticamente: qu&eacute; facturar, qu&eacute; omitir, qu&eacute; pedir confirmaci&oacute;n.</p>
-          <span class="flow-tag">Clasificaci&oacute;n autom&aacute;tica</span>
+      <div class="step-item">
+        <div class="step-icon-wrap">
+          <div class="step-icon-inner">🤖</div>
         </div>
+        <div class="step-title">El sistema clasifica solo</div>
+        <div class="step-body">Transferencias y MercadoPago se facturan automáticamente. Efectivo y casos especiales te los muestra para que decidas.</div>
       </div>
-      <div class="flow-item reveal">
-        <div class="flow-bullet">3</div>
-        <div class="flow-content">
-          <h3>Revis&aacute;s el resumen en 2 minutos</h3>
-          <p>Ves cu&aacute;ntas facturas va a emitir el sistema, cu&aacute;les necesitan tu ok y cu&aacute;les se omiten con su motivo.</p>
-          <span class="flow-tag">Vista previa antes de emitir</span>
+      <div class="step-item">
+        <div class="step-icon-wrap">
+          <div class="step-icon-inner">⚡</div>
         </div>
+        <div class="step-title">Emitís de un click</div>
+        <div class="step-body">Revisás el resumen y confirmás. El sistema emite todas las facturas contra ARCA en menos de 5 minutos.</div>
       </div>
-      <div class="flow-item reveal">
-        <div class="flow-bullet">4</div>
-        <div class="flow-content">
-          <h3>Emit&iacute;s todo de un click</h3>
-          <p>El sistema env&iacute;a cada factura a ARCA, obtiene el CAE, genera el PDF oficial y puede notificar a tus alumnos.</p>
-          <span class="flow-tag">Emisi&oacute;n masiva ante ARCA</span>
+      <div class="step-item">
+        <div class="step-icon-wrap">
+          <div class="step-icon-inner">📤</div>
         </div>
+        <div class="step-title">Enviás al instante</div>
+        <div class="step-body">Cada factura se envía al alumno por mail o WhatsApp. Tu contador recibe el reporte mensual automáticamente.</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section-white" id="funcionalidades">
-  <div class="wrap reveal">
-    <div class="eyebrow">Funcionalidades</div>
-    <h2 class="section-title">Todo lo que necesit&aacute;s<br>para facturar bien.</h2>
-  </div>
-  <div style="margin-top:56px">
-    <div class="feature-rows">
+<!-- FUNCIONALIDADES -->
+<section class="features-section" id="funcionalidades">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:64px">
+      <div class="section-eyebrow">Funcionalidades</div>
+      <h2 class="section-title">Todo lo que necesitás<br>para facturar bien</h2>
+    </div>
+    <div class="features-list">
+
+      <!-- FEATURE 1: Emisión automática -->
       <div class="feature-row">
         <div class="feature-text">
-          <div class="eyebrow">Emisi&oacute;n autom&aacute;tica</div>
-          <h3>Import&aacute;s los cobros,<br>el sistema hace el resto</h3>
-          <p>Cada pago tiene una regla. Transferencias y MercadoPago se emiten solas. Efectivo pide tu ok. Categor&iacute;as excluidas se saltean solas.</p>
-          <ul class="check-list">
-            <li>Transferencias bancarias y MercadoPago: emisi&oacute;n autom&aacute;tica</li>
-            <li>Pagos en efectivo: pide confirmaci&oacute;n antes de emitir</li>
-            <li>Categor&iacute;as excluidas (invitado, beca): se omiten solas</li>
-            <li>Importes negativos: identificados y marcados sin emitir</li>
+          <div class="feature-tag"><span class="feature-icon-sm">⚡</span> Emisión automática</div>
+          <h3 class="feature-title">Emitís 127 facturas en 5 minutos, sin tocar ARCA</h3>
+          <p class="feature-body">El sistema lee tus cobros, decide qué se factura y qué no, y emite contra ARCA en lote. Cada vez que entrás al sistema, ya está todo listo para confirmar.</p>
+          <ul class="feature-checks">
+            <li>
+              <span class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+              Transferencias y MercadoPago se emiten automáticamente
+            </li>
+            <li>
+              <span class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+              Cobros en efectivo quedan en espera para tu aprobación
+            </li>
+            <li>
+              <span class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+              Alumnos excluidos se omiten solos, sin que tengas que recordarlo
+            </li>
           </ul>
         </div>
         <div class="feature-visual">
-          <div class="flow-visual">
-            <div class="flow-vis-step">
-              <div class="flow-vis-icon a">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2C3178" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-              </div>
-              <div>
-                <div class="flow-vis-title">Excel de cobros del mes</div>
-                <div class="flow-vis-sub">Lista completa de cobros</div>
-              </div>
-              <div class="flow-vis-count">158 pagos</div>
+          <div class="feat-visual">
+            <div class="feat-visual-header">
+              <div class="feat-visual-title">Cobros del mes — Belgrano</div>
+              <span class="feat-visual-badge fvb-green">127 listos para emitir</span>
             </div>
-            <div class="flow-vis-connector"></div>
-            <div class="flow-vis-step">
-              <div class="flow-vis-icon b">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F07B5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <div class="source-grid" style="margin-bottom:16px">
+              <div class="source-card active">
+                <div class="source-icon">🏦</div>
+                <div>
+                  <div class="source-label">Transferencias</div>
+                  <div class="source-sub">84 cobros · $1.8M</div>
+                  <div class="source-status ss-connected">Auto-emitido</div>
+                </div>
               </div>
-              <div>
-                <div class="flow-vis-title">Clasificaci&oacute;n autom&aacute;tica</div>
-                <div class="flow-vis-sub">Reglas por m&eacute;todo y categor&iacute;a</div>
+              <div class="source-card active">
+                <div class="source-icon">💳</div>
+                <div>
+                  <div class="source-label">MercadoPago</div>
+                  <div class="source-sub">43 cobros · $890k</div>
+                  <div class="source-status ss-connected">Auto-emitido</div>
+                </div>
               </div>
             </div>
-            <div class="flow-vis-connector"></div>
-            <div class="flow-vis-step">
-              <div class="flow-vis-icon c">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22a670" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div style="display:flex;gap:8px">
+              <div class="source-card" style="flex:1">
+                <div class="source-icon">💵</div>
+                <div>
+                  <div class="source-label">Efectivo</div>
+                  <div class="source-sub">12 cobros · $280k</div>
+                  <div class="source-status ss-manual">Requiere decisión</div>
+                </div>
               </div>
-              <div>
-                <div class="flow-vis-title">ARCA aprueba con CAE</div>
-                <div class="flow-vis-sub">127 emitidas &middot; 3 a revisar &middot; 28 omitidas</div>
+              <div class="source-card" style="flex:1;opacity:.5">
+                <div class="source-icon">🚫</div>
+                <div>
+                  <div class="source-label">Excluidos</div>
+                  <div class="source-sub">3 alumnos omitidos</div>
+                  <div class="source-status" style="background:#fee;color:#c53030">No facturar</div>
+                </div>
               </div>
-              <div class="flow-vis-count" style="background:#e8f7ef;border-color:rgba(34,166,112,.2);color:#22a670">127 ok</div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="feature-row flip">
+      <!-- FEATURE 2: Control de monotributo -->
+      <div class="feature-row reverse">
         <div class="feature-text">
-          <div class="eyebrow">Tu mayor diferencial</div>
-          <h3>El control de monotributo<br>que te saca el miedo.</h3>
-          <p>La recategorizaci&oacute;n semestral y la exclusi&oacute;n del r&eacute;gimen son los dos riesgos reales de un monotributista. M&aacute;s F&aacute;cil los monitorea autom&aacute;ticamente y te avisa antes de que se conviertan en un problema.</p>
-          <ul class="check-list">
-            <li>Alerta cuando super&aacute;s el 80% del tope de tu categor&iacute;a &mdash; tiempo de sobra para hablar con tu contador</li>
-            <li>Control de exclusi&oacute;n: acumulado de los &uacute;ltimos 365 d&iacute;as corridos, siempre visible</li>
-            <li>Sem&aacute;foro de recategorizaci&oacute;n semestral (Jul&ndash;Dic y Ene&ndash;Jun) por cada sede</li>
-            <li>Historial completo sincronizado con ARCA, incluso facturas emitidas antes de usar el sistema</li>
+          <div class="feature-tag"><span class="feature-icon-sm">🛡️</span> Control de monotributo</div>
+          <h3 class="feature-title">Sabés exactamente dónde estás. Siempre.</h3>
+          <p class="feature-body">El sistema calcula en tiempo real cuánto facturaste en los últimos 12 meses y te avisa antes de que llegues al límite. No más sorpresas en enero.</p>
+          <ul class="feature-checks">
+            <li>
+              <span class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+              Alerta al 80% del tope — todavía hay tiempo para actuar
+            </li>
+            <li>
+              <span class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+              Bloqueo preventivo al 90% — no emite más hasta que lo autorices
+            </li>
+            <li>
+              <span class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+              0 errores en la recategorización: calculamos para la categoría que corresponde
+            </li>
           </ul>
-          <div class="mono-callout">
-            <div class="mono-callout-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F07B5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-            </div>
-            <p>La exclusi&oacute;n del monotributo implica pasar al r&eacute;gimen general con efecto retroactivo. Una alerta a tiempo puede evitar un problema fiscal muy costoso.</p>
-          </div>
         </div>
         <div class="feature-visual">
-          <div class="semaforo-vis">
-            <div class="sem-card">
-              <div class="sem-header">Recategorizaci&oacute;n semestral &middot; Junio 2026</div>
-              <div class="sem-row">
-                <div class="sem-label">Caballito</div>
-                <div class="sem-bar-wrap"><div class="sem-bar-fill fill-green" style="width:72%"></div></div>
-                <div class="sem-pct pct-green">72%</div>
-              </div>
-              <div class="sem-row">
-                <div class="sem-label">Belgrano</div>
-                <div class="sem-bar-wrap"><div class="sem-bar-fill fill-yellow" style="width:84%"></div></div>
-                <div class="sem-pct pct-yellow">84%</div>
-              </div>
-              <div class="sem-row">
-                <div class="sem-label">Barrio Norte</div>
-                <div class="sem-bar-wrap"><div class="sem-bar-fill fill-green" style="width:61%"></div></div>
-                <div class="sem-pct pct-green">61%</div>
-              </div>
-              <div class="sem-row">
-                <div class="sem-label">Barrio Norte</div>
-                <div class="sem-bar-wrap"><div class="sem-bar-fill fill-red" style="width:92%"></div></div>
-                <div class="sem-pct pct-red">92%</div>
-              </div>
-              <div class="sem-alert">Barrio Norte super&oacute; el 80% del tope &mdash; revis&aacute; con tu contador antes del cierre del per&iacute;odo</div>
+          <div class="feat-visual">
+            <div class="feat-visual-header">
+              <div class="feat-visual-title">Semáforo de monotributo</div>
+              <span class="feat-visual-badge fvb-amber">1 alerta activa</span>
             </div>
-            <div class="sem-card" style="margin-top:10px">
-              <div class="sem-header">Exclusi&oacute;n &middot; &Uacute;ltimos 365 d&iacute;as</div>
+            <div class="semaforo-wrap">
               <div class="sem-row">
-                <div class="sem-label">Caballito</div>
-                <div class="sem-bar-wrap"><div class="sem-bar-fill fill-green" style="width:68%"></div></div>
-                <div class="sem-pct pct-green">68%</div>
+                <div class="sem-sede">Caballito</div>
+                <div class="sem-bar-wrap"><div class="sem-bar sem-green" style="width:72%"></div></div>
+                <div class="sem-pct green">72%</div>
+                <div class="sem-label">Cat. H</div>
               </div>
               <div class="sem-row">
-                <div class="sem-label">Barrio Norte</div>
-                <div class="sem-bar-wrap"><div class="sem-bar-fill fill-yellow" style="width:81%"></div></div>
-                <div class="sem-pct pct-yellow">81%</div>
+                <div class="sem-sede">Belgrano</div>
+                <div class="sem-bar-wrap"><div class="sem-bar sem-amber" style="width:83%"></div></div>
+                <div class="sem-pct amber">83%</div>
+                <div class="sem-label">Cat. G</div>
               </div>
-              <div style="margin-top:10px;font-size:11px;font-weight:600;color:var(--gray-mid)">Tope de exclusi&oacute;n: Cat. K &mdash; actualizado con cada emisi&oacute;n</div>
+              <div class="sem-row">
+                <div class="sem-sede">Palermo</div>
+                <div class="sem-bar-wrap"><div class="sem-bar sem-green" style="width:61%"></div></div>
+                <div class="sem-pct green">61%</div>
+                <div class="sem-label">Cat. F</div>
+              </div>
+              <div class="sem-row">
+                <div class="sem-sede">Barrio Norte</div>
+                <div class="sem-bar-wrap"><div class="sem-bar sem-green" style="width:58%"></div></div>
+                <div class="sem-pct green">58%</div>
+                <div class="sem-label">Cat. E</div>
+              </div>
+              <div class="sem-alert">
+                <div class="sem-alert-title">⚠️ Belgrano: 83% del tope de categoría</div>
+                <div class="sem-alert-body">Quedan $310.000 para llegar al tope de Categoría G. Tu contador fue notificado.</div>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
 
+      <!-- FEATURE 3: Reporte contador -->
       <div class="feature-row">
         <div class="feature-text">
-          <div class="eyebrow">Reporte para el contador</div>
-          <h3>Un informe mensual listo<br>sin pedirle nada a nadie</h3>
-          <p>PDF autom&aacute;tico con KPIs de facturaci&oacute;n, estado de monotributo, gr&aacute;fico de 12 meses y proyecci&oacute;n. Tu contador lo descarga, vos no ten&eacute;s que hacer nada.</p>
-          <ul class="check-list">
-            <li>Resumen de ingresos por sede y total consolidado</li>
-            <li>Barra de recategorizaci&oacute;n con categor&iacute;as A a K</li>
-            <li>Gr&aacute;fico hist&oacute;rico de 12 meses con proyecci&oacute;n estacional</li>
-            <li>Descargable en PDF, listo para adjuntar por email</li>
+          <div class="feature-tag"><span class="feature-icon-sm">📊</span> Reporte para tu contador</div>
+          <h3 class="feature-title">Tu contador siempre está al tanto. Sin que vos hagas nada.</h3>
+          <p class="feature-body">Al cierre de cada mes, el sistema genera y envía automáticamente un reporte completo a tu contador: facturas emitidas, acumulado anual, y alertas de recategorización por cada sede.</p>
+          <ul class="feature-checks">
+            <li>
+              <span class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+              Historial completo de facturas, exportable para auditorías
+            </li>
+            <li>
+              <span class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+              El contador tiene su propio acceso, sin depender de vos
+            </li>
+            <li>
+              <span class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+              Alertas automáticas cuando una sede se acerca al tope
+            </li>
           </ul>
         </div>
         <div class="feature-visual">
-          <div class="reporte-vis">
-            <div class="rpt-card">
-              <div class="rpt-top">
-                <div class="rpt-avatar">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                </div>
-                <div>
-                  <div class="rpt-name">Reporte Junio 2026</div>
-                  <div class="rpt-role">Studio Belgrano &middot; Generado autom&aacute;ticamente</div>
+          <div class="feat-visual">
+            <div class="feat-visual-header">
+              <div class="feat-visual-title">Reporte mensual — Junio 2026</div>
+              <span class="feat-visual-badge fvb-blue">Enviado al contador</span>
+            </div>
+            <div class="report-rows">
+              <div class="report-row">
+                <div class="rr-name">Caballito</div>
+                <div class="rr-stats">
+                  <div class="rr-stat"><div class="rr-stat-val">$2.4M</div><div class="rr-stat-lbl">Facturado</div></div>
+                  <div class="rr-stat"><div class="rr-stat-val">127</div><div class="rr-stat-lbl">Facturas</div></div>
+                  <div class="rr-badge" style="background:#dcf5eb;color:#16714a">72%</div>
                 </div>
               </div>
-              <div class="rpt-body">
-                <div class="rpt-kpis">
-                  <div class="rpt-kpi"><div class="rpt-kpi-v">$8.6M</div><div class="rpt-kpi-l">Facturado total</div></div>
-                  <div class="rpt-kpi"><div class="rpt-kpi-v">412</div><div class="rpt-kpi-l">Facturas emitidas</div></div>
+              <div class="report-row">
+                <div class="rr-name">Belgrano</div>
+                <div class="rr-stats">
+                  <div class="rr-stat"><div class="rr-stat-val">$1.9M</div><div class="rr-stat-lbl">Facturado</div></div>
+                  <div class="rr-stat"><div class="rr-stat-val">98</div><div class="rr-stat-lbl">Facturas</div></div>
+                  <div class="rr-badge" style="background:#fff3dc;color:#9a6200">83%</div>
                 </div>
-                <div class="rpt-chart-lbl">Posici&oacute;n en escala de monotributo</div>
-                <div class="rpt-chart">
-                  <div class="rpt-bar active" style="height:20%"></div>
-                  <div class="rpt-bar active" style="height:30%"></div>
-                  <div class="rpt-bar active" style="height:45%"></div>
-                  <div class="rpt-bar active" style="height:55%"></div>
-                  <div class="rpt-bar active" style="height:65%"></div>
-                  <div class="rpt-bar active" style="height:75%"></div>
-                  <div class="rpt-bar curr"   style="height:85%"></div>
-                  <div class="rpt-bar"         style="height:90%"></div>
-                  <div class="rpt-bar"         style="height:95%"></div>
-                  <div class="rpt-bar"         style="height:98%"></div>
-                  <div class="rpt-bar"         style="height:100%"></div>
+              </div>
+              <div class="report-row">
+                <div class="rr-name">Palermo</div>
+                <div class="rr-stats">
+                  <div class="rr-stat"><div class="rr-stat-val">$1.6M</div><div class="rr-stat-lbl">Facturado</div></div>
+                  <div class="rr-stat"><div class="rr-stat-val">84</div><div class="rr-stat-lbl">Facturas</div></div>
+                  <div class="rr-badge" style="background:#dcf5eb;color:#16714a">61%</div>
                 </div>
-                <div class="rpt-labels">
-                  <div class="rpt-lbl">A</div><div class="rpt-lbl">B</div><div class="rpt-lbl">C</div>
-                  <div class="rpt-lbl">D</div><div class="rpt-lbl">E</div><div class="rpt-lbl">F</div>
-                  <div class="rpt-lbl curr">G</div><div class="rpt-lbl">H</div><div class="rpt-lbl">I</div>
-                  <div class="rpt-lbl">J</div><div class="rpt-lbl">K</div>
+              </div>
+              <div class="report-row">
+                <div class="rr-name">Barrio Norte</div>
+                <div class="rr-stats">
+                  <div class="rr-stat"><div class="rr-stat-val">$1.4M</div><div class="rr-stat-lbl">Facturado</div></div>
+                  <div class="rr-stat"><div class="rr-stat-val">73</div><div class="rr-stat-lbl">Facturas</div></div>
+                  <div class="rr-badge" style="background:#dcf5eb;color:#16714a">58%</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="feature-row flip">
+
+      <!-- FEATURE 4: Envío por mail y WhatsApp -->
+      <div class="feature-row reverse">
         <div class="feature-text">
-          <div class="eyebrow">Env&iacute;o autom&aacute;tico</div>
-          <h3>Tus alumnos reciben<br>su factura al instante</h3>
-          <p>Ni bien se emite, el sistema puede enviar el comprobante directamente al alumno. Por mail o por WhatsApp, sin que tengas que hacer nada.</p>
-          <ul class="check-list">
-            <li>Env&iacute;o por email al alumno al momento de la emisi&oacute;n</li>
-            <li>Env&iacute;o por WhatsApp con el PDF adjunto</li>
-            <li>Bot&oacute;n para reenviar manualmente desde el historial</li>
-            <li>PDF con formato oficial ARCA y QR real verificable</li>
+          <div class="feature-tag"><span class="feature-icon-sm">📨</span> Envío directo al alumno</div>
+          <h3 class="feature-title">Cada factura llega al alumno sin que hagas nada extra</h3>
+          <p class="feature-body">Una vez emitidas, las facturas se envían automáticamente a cada alumno por mail o WhatsApp. Sin descargar PDFs, sin copiar y pegar, sin olvidarse de nadie.</p>
+          <ul class="feature-checks">
+            <li>
+              <span class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+              Envío automático por email al cierre del lote
+            </li>
+            <li>
+              <span class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+              Compartir por WhatsApp con un click
+            </li>
+            <li>
+              <span class="check-icon"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+              PDF descargable siempre disponible desde el historial
+            </li>
           </ul>
         </div>
         <div class="feature-visual">
-          <div style="width:100%;max-width:340px;display:flex;flex-direction:column;gap:10px">
-            <div style="background:white;border:1px solid var(--gray-light);border-radius:12px;padding:16px 20px">
-              <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--gray-mid);margin-bottom:12px">Factura emitida</div>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+          <div class="feat-visual">
+            <div class="feat-visual-header">
+              <div class="feat-visual-title">Factura emitida</div>
+              <span class="feat-visual-badge fvb-green">Enviada</span>
+            </div>
+            <div style="background:var(--off-white);border-radius:12px;padding:16px;margin-bottom:12px">
+              <div style="font-size:11px;font-weight:700;color:var(--gray-mid);margin-bottom:4px">Destinatario</div>
+              <div style="font-size:14px;font-weight:700;color:var(--carbon)">Mar&iacute;a Gonz&aacute;lez</div>
+              <div style="font-size:12px;color:var(--gray-mid);margin-top:2px">maria@mail.com &nbsp;·&nbsp; WhatsApp ✓</div>
+            </div>
+            <div style="background:var(--off-white);border-radius:12px;padding:16px;margin-bottom:12px">
+              <div style="display:flex;justify-content:space-between;align-items:center">
                 <div>
-                  <div style="font-size:13px;font-weight:800;color:var(--navy)">Mar&iacute;a Gonz&aacute;lez</div>
-                  <div style="font-size:11px;color:var(--gray-mid)">FC C 0001-00001847</div>
+                  <div style="font-size:11px;font-weight:700;color:var(--gray-mid);margin-bottom:2px">Comprobante</div>
+                  <div style="font-size:14px;font-weight:800;color:var(--navy)">Factura B 0001-00001234</div>
+                  <div style="font-size:12px;color:var(--gray-mid);margin-top:2px">Pack 8 clases · Junio 2026</div>
                 </div>
-                <div style="font-size:14px;font-weight:900;color:var(--navy)">$28.000</div>
-              </div>
-              <div style="display:flex;gap:8px">
-                <div style="flex:1;background:var(--navy);color:white;font-size:11px;font-weight:800;padding:9px 12px;border-radius:8px;text-align:center;display:flex;align-items:center;justify-content:center;gap:6px">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                  Enviar por mail
-                </div>
-                <div style="flex:1;background:#25d366;color:white;font-size:11px;font-weight:800;padding:9px 12px;border-radius:8px;text-align:center;display:flex;align-items:center;justify-content:center;gap:6px">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                  WhatsApp
-                </div>
+                <div style="font-size:20px;font-weight:900;color:var(--navy)">$28.000</div>
               </div>
             </div>
-            <div style="background:white;border:1px solid #dcfce7;border-left:3px solid #22a670;border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:10px">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22a670" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <div style="font-size:12px;font-weight:700;color:#15803d">Factura enviada autom&aacute;ticamente a mar&iacute;a@gmail.com</div>
-            </div>
-            <div style="background:white;border:1px solid #dcfce7;border-left:3px solid #25d366;border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:10px">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#25d366" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <div style="font-size:12px;font-weight:700;color:#15803d">PDF enviado por WhatsApp a +54 9 11 ...</div>
+            <div style="display:flex;gap:8px">
+              <div style="flex:1;background:#25D366;border-radius:10px;padding:10px;text-align:center;font-size:12px;font-weight:800;color:white">WhatsApp ✓</div>
+              <div style="flex:1;background:var(--navy);border-radius:10px;padding:10px;text-align:center;font-size:12px;font-weight:800;color:white">Email ✓</div>
+              <div style="flex:1;background:var(--off-white);border:1px solid var(--gray-light);border-radius:10px;padding:10px;text-align:center;font-size:12px;font-weight:800;color:var(--gray-mid)">PDF</div>
             </div>
           </div>
         </div>
@@ -767,176 +810,256 @@ footer{background:var(--carbon);padding:64px 0 40px}
   </div>
 </section>
 
+<!-- QUOTE -->
 <section class="quote-section">
-  <div class="wrap">
-    <div class="quote-inner reveal">
-      <div class="quote-mark">&ldquo;</div>
-      <blockquote>
-        Constru&iacute;mos M&aacute;s F&aacute;cil porque no exist&iacute;a ninguna herramienta pensada para este rubro. Los estudios perd&iacute;an horas cada mes en algo que deber&iacute;a resolverse solo, y los facturadores gen&eacute;ricos no entienden el monotributo ni c&oacute;mo cobra un estudio.
-      </blockquote>
-      <div class="quote-author">
-        <div class="quote-avatar">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <div>
-          <div class="quote-author-name">Marcelo C&eacute;sar P&eacute;rez</div>
-          <div class="quote-author-role">Contador P&uacute;blico Nacional &middot; Especializado en estudios que cobran por clases y abonos</div>
-        </div>
+  <div class="quote-inner">
+    <div class="quote-mark">"</div>
+    <p class="quote-text">Soy contador y socio de Toulouse Pilates. Construimos Más Fácil porque no existía ninguna herramienta pensada para nuestro rubro. La uso yo mismo, todos los meses, en nuestras cuatro sedes.</p>
+    <div class="quote-author">
+      <div class="quote-avatar">M</div>
+      <div>
+        <div class="quote-meta-name">Marcelo César Pérez</div>
+        <div class="quote-meta-role">CPN · Especializado en estudios de actividades físicas · Socio de Toulouse Pilates</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section-off">
+<!-- TESTIMONIALES -->
+<section class="testi-section">
   <div class="wrap">
-    <div class="reveal">
-      <div class="eyebrow">Lo que dicen los estudios</div>
-      <h2 class="section-title">Resultados reales.</h2>
+    <div class="testi-intro">
+      <div class="section-eyebrow">Lo que dicen los estudios</div>
+      <h2 class="section-title">Resultados reales, desde el primer mes</h2>
     </div>
     <div class="testi-grid">
-      <div class="testi-card reveal">
-        <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
-        <p class="testi-text">&ldquo;Antes me llevaba toda una ma&ntilde;ana. Ahora importo el Excel, reviso, le doy emitir y listo. En serio, cinco minutos.&rdquo;</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:#e0e7ff"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2C3178" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-          <div><div class="testi-name">Sandra M.</div><div class="testi-studio">Estudio de Pilates &middot; Barrio Norte</div></div>
+      <div class="testi-card">
+        <div class="testi-stars">
+          <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
+        </div>
+        <p class="testi-quote">"Antes tardaba casi una tarde entera. Ahora entro al sistema, le doy confirmar y en 10 minutos está todo emitido. No lo podía creer cuando lo vi funcionar la primera vez."</p>
+        <div class="testi-author-row">
+          <div class="testi-avatar">S</div>
+          <div>
+            <div class="testi-name">Sandra M.</div>
+            <div class="testi-role">Estudio de actividades físicas · Barrio Norte</div>
+          </div>
         </div>
       </div>
-      <div class="testi-card reveal">
-        <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
-        <p class="testi-text">&ldquo;El sem&aacute;foro de monotributo me salv&oacute;. Vi que Belgrano iba al 88% y pude hablar con mi contadora antes de que fuera un problema.&rdquo;</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:#fce7f3"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9d174d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-          <div><div class="testi-name">Carolina R.</div><div class="testi-studio">Centro de Fitness &middot; Belgrano</div></div>
+      <div class="testi-card">
+        <div class="testi-stars">
+          <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
+        </div>
+        <p class="testi-quote">"Lo que más me tranquiliza es el semáforo del monotributo. Sé exactamente cuánto me falta para cambiar de categoría. Antes eso lo miraba una vez por año con mi contador, cuando ya era tarde."</p>
+        <div class="testi-author-row">
+          <div class="testi-avatar">C</div>
+          <div>
+            <div class="testi-name">Carolina R.</div>
+            <div class="testi-role">Estudio de fitness · Belgrano</div>
+          </div>
         </div>
       </div>
-      <div class="testi-card reveal">
-        <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
-        <p class="testi-text">&ldquo;Mi contador recibe el reporte autom&aacute;tico y ya no me llama a pedirme datos. Eso solo ya vale el precio del plan.&rdquo;</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:#dcfce7"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-          <div><div class="testi-name">Luciana P.</div><div class="testi-studio">Taller de Cer&aacute;mica &middot; San Telmo</div></div>
+      <div class="testi-card">
+        <div class="testi-stars">
+          <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
+        </div>
+        <p class="testi-quote">"El reporte automático al contador cambió todo. Él lo recibe sin que yo tenga que hacer nada y me llama cuando hay algo para revisar, no cuando ya hay un problema."</p>
+        <div class="testi-author-row">
+          <div class="testi-avatar">V</div>
+          <div>
+            <div class="testi-name">Valeria L.</div>
+            <div class="testi-role">Gimnasio boutique · Caballito</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-
-<section class="section section-off" id="faq">
+<!-- FAQ -->
+<section class="faq-section" id="faq">
   <div class="wrap">
-    <div class="reveal" style="text-align:center">
-      <div class="eyebrow">Preguntas frecuentes</div>
-      <h2 class="section-title" style="margin:0 auto">Todo lo que necesit&aacute;s saber.</h2>
+    <div class="faq-intro">
+      <div class="section-eyebrow">Preguntas frecuentes</div>
+      <h2 class="section-title">Dudas comunes</h2>
     </div>
-    <div class="faq-wrap">
-      <div class="faq-item reveal">
-        <button class="faq-trigger" onclick="faq(this)">
-          <span class="faq-q-text">&iquest;Necesito saber de impuestos para usar M&aacute;s F&aacute;cil?</span>
-          <span class="faq-icon">+</span>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <button class="faq-q">
+          ¿Necesito saber de impuestos para usar Más Fácil?
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
         </button>
-        <div class="faq-answer"><div class="faq-answer-inner">No. El sistema est&aacute; dise&ntilde;ado para el due&ntilde;o del estudio, no para el contador. Import&aacute;s el Excel, el sistema decide qu&eacute; facturar y vos apretat emitir. Si hay algo que requiere tu atenci&oacute;n, te lo indica con claridad.</div></div>
+        <div class="faq-a">No. Más Fácil está diseñado para que lo use el dueño del estudio, no el contador. Tomás decisiones simples (¿facturo este cobro en efectivo?) y el sistema se encarga de todo lo demás. La lógica fiscal está integrada.</div>
       </div>
-      <div class="faq-item reveal">
-        <button class="faq-trigger" onclick="faq(this)">
-          <span class="faq-q-text">&iquest;Qu&eacute; necesito para empezar?</span>
-          <span class="faq-icon">+</span>
+      <div class="faq-item">
+        <button class="faq-q">
+          ¿Qué necesito para empezar?
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
         </button>
-        <div class="faq-answer"><div class="faq-answer-inner">Necesit&aacute;s tu CUIT de monotributista activo y el certificado digital de ARCA. Con eso ya pod&eacute;s empezar. Si no sab&eacute;s c&oacute;mo obtenerlo, tenemos una gu&iacute;a paso a paso dentro de la app.</div></div>
+        <div class="faq-a">Solo necesitás tu certificado digital de ARCA (el mismo que usás para facturar manualmente). Si no lo tenés, te acompañamos a tramitarlo. El onboarding es una videollamada de 15 minutos y ya estás operativo.</div>
       </div>
-      <div class="faq-item reveal">
-        <button class="faq-trigger" onclick="faq(this)">
-          <span class="faq-q-text">&iquest;Funciona con mi sistema de gesti&oacute;n?</span>
-          <span class="faq-icon">+</span>
+      <div class="faq-item">
+        <button class="faq-q">
+          ¿Funciona si tengo más de una sede?
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
         </button>
-        <div class="faq-answer"><div class="faq-answer-inner">S&iacute;, si exporta los cobros a Excel. Ten&eacute;s dos caminos: pas&aacute;s tu export a nuestra plantilla, que es de seis columnas, o nos escrib&iacute;s y agregamos el formato de tu sistema para que importe directo, sin plantilla. Ya tenemos integraciones directas con sistemas del rubro y sumamos las que nos piden.</div></div>
+        <div class="faq-a">Sí. Podés tener todas las sedes que necesites bajo una sola cuenta. Cada sede tiene su propio CUIT, punto de venta y control de monotributo independiente. El plan Pro incluye sedes ilimitadas.</div>
       </div>
-      <div class="faq-item reveal">
-        <button class="faq-trigger" onclick="faq(this)">
-          <span class="faq-q-text">&iquest;Reemplaza a mi contador?</span>
-          <span class="faq-icon">+</span>
+      <div class="faq-item">
+        <button class="faq-q">
+          ¿Cómo se maneja MercadoPago?
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
         </button>
-        <div class="faq-answer"><div class="faq-answer-inner">No. M&aacute;s F&aacute;cil automatiza la operaci&oacute;n mensual de facturaci&oacute;n y el control de monotributo. El asesoramiento fiscal, las declaraciones juradas y las decisiones de categor&iacute;a siguen siendo trabajo de tu contador. La diferencia es que tu contador va a tener todo organizado sin pedirte datos.</div></div>
+        <div class="faq-a">Conectás tu cuenta de MercadoPago una vez y los cobros se sincronizan automáticamente. El sistema identifica cada pago, lo cruza con tus alumnos y lo deja listo para emitir. Sin exportar ni importar nada.</div>
       </div>
-      <div class="faq-item reveal">
-        <button class="faq-trigger" onclick="faq(this)">
-          <span class="faq-q-text">&iquest;Es seguro subir el certificado ARCA?</span>
-          <span class="faq-icon">+</span>
+      <div class="faq-item">
+        <button class="faq-q">
+          ¿Cuánto cuesta después del período gratuito?
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
         </button>
-        <div class="faq-answer"><div class="faq-answer-inner">S&iacute;. Los certificados se guardan cifrados. Solo se desencriptan en el momento exacto de emitir facturas, en servidores seguros, y no quedan expuestos en ning&uacute;n momento.</div></div>
+        <div class="faq-a">Los planes son en USD y se cobran en pesos al tipo de cambio del día. Plan Starter (1 sede, hasta 150 facturas/mes) y Plan Pro (sedes ilimitadas, facturas ilimitadas). Los precios actuales están en el sitio. Podés cancelar cuando quieras.</div>
       </div>
-      <div class="faq-item reveal">
-        <button class="faq-trigger" onclick="faq(this)">
-          <span class="faq-q-text">&iquest;Qu&eacute; pasa si ARCA rechaza una factura?</span>
-          <span class="faq-icon">+</span>
+      <div class="faq-item">
+        <button class="faq-q">
+          ¿Es seguro darle acceso a mi CUIT y certificados?
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
         </button>
-        <div class="faq-answer"><div class="faq-answer-inner">El sistema te notifica por email qu&eacute; facturas fueron rechazadas y el motivo que devuelve ARCA. Pod&eacute;s corregir y volver a emitir. Los rechazos son raros cuando los datos del estudio est&aacute;n correctamente cargados.</div></div>
+        <div class="faq-a">Sí. Tus certificados se almacenan encriptados y nunca se comparten con terceros. La plataforma fue auditada en materia de seguridad y cumple los estándares para el manejo de credenciales fiscales. Además, el equipo detrás es un estudio contable — entendemos la responsabilidad que implica.</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FINAL CTA -->
 <section class="final-cta">
   <div class="wrap">
-    <div class="reveal">
-      <div class="eyebrow" style="text-align:center">Empez&aacute; hoy</div>
-      <h2 class="section-title" style="text-align:center;margin:0 auto 20px">1 mes gratis.<br>Sin tarjeta.</h2>
-      <p class="section-body" style="text-align:center;margin:0 auto 48px">En 15 minutos ya ten&eacute;s tu primera sede configurada y lista para emitir. Sin tarjeta de cr&eacute;dito.</p>
-      <div class="cta-actions">
-        <a href="https://app.masfacil.com.ar/ui/registro" class="btn-cta coral lg">Crear cuenta gratis <span class="arrow">&rarr;</span></a>
-        <a href="mailto:info@masfacil.com.ar" class="cta-secondary">Hablar con alguien</a>
+    <div class="cta-tag">🎯 Sin compromiso</div>
+    <h2 class="final-cta-title">Empezá hoy.<br>El primer mes es gratis.</h2>
+    <p class="final-cta-sub">Sin tarjeta de crédito. En 15 minutos ya tenés<br>tu primera sede configurada y lista para facturar.</p>
+    <div class="final-cta-actions">
+      <a href="https://app.masfacil.com.ar/registro" class="btn-cta white lg">Crear cuenta gratis <span class="arrow">→</span></a>
+      <a href="mailto:hola@masfacil.com.ar" class="btn-cta ghost lg">Hablar con alguien</a>
+    </div>
+    <div class="final-trust">
+      <div class="ft-item">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        Sin tarjeta
+      </div>
+      <div style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.2)"></div>
+      <div class="ft-item">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        Cancelás cuando quieras
+      </div>
+      <div style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.2)"></div>
+      <div class="ft-item">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        Onboarding incluido
+      </div>
+      <div style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.2)"></div>
+      <div class="ft-item">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        Integrado con ARCA
       </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
-    <div class="footer-grid">
+    <div class="footer-inner">
       <div class="footer-brand">
-        <div class="logo">
-          <img src="data:image/png;base64,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" alt="Facturo Más Fácil" class="logo-img-h logo-img-footer">
-        </div>
-        <p>Facturaci&oacute;n electr&oacute;nica ARCA para estudios, gimnasios y talleres en Argentina.</p>
-        <p class="entity">M&aacute;s F&aacute;cil SAS &middot; CUIT 30-71675377-4<br>Av. Colonia 211 &middot; CABA</p>
+        <a href="/">
+          <img src="data:image/png;base64,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" alt="Facturo Más Fácil" class="logo-img-footer"/>
+        </a>
+        <p>Facturación electrónica y control fiscal para estudios de actividades físicas en Argentina.</p>
       </div>
       <div class="footer-col">
         <h4>Producto</h4>
         <ul>
-          <li><a href="#como-funciona">C&oacute;mo funciona</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
           <li><a href="#funcionalidades">Funcionalidades</a></li>
-          <li><a href="/calculadora">Calculadora de monotributo</a></li>
-          <li><a href="https://app.masfacil.com.ar/ui/registro">Registrarse</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="https://app.masfacil.com.ar/registro">Crear cuenta</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Para contadores</h4>
+        <h4>Empresa</h4>
         <ul>
-          <li><a href="https://app.masfacil.com.ar/contador/login">Portal contador</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contacto</h4>
-        <ul>
-          <li><a href="mailto:info@masfacil.com.ar">info@masfacil.com.ar</a></li>
+          <li><a href="mailto:hola@masfacil.com.ar">Contacto</a></li>
           <li><a href="/terminos">T&eacute;rminos y condiciones</a></li>
+          <li><a href="/privacidad">Pol&iacute;tica de privacidad</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 M&aacute;s F&aacute;cil SAS. Todos los derechos reservados.</span>
-      <span>Hecho en Buenos Aires.</span>
+      <div class="footer-copy">&copy; 2026 Más Fácil. Todos los derechos reservados. masfacil.com.ar</div>
+      <div class="footer-copy">Desarrollado por contadores, para el rubro de actividades físicas.</div>
     </div>
   </div>
 </footer>
 
 <script>
-window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>10)});
-function faq(btn){const item=btn.closest('.faq-item'),open=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));if(!open)item.classList.add('open')}
-document.getElementById('hamburger').addEventListener('click',function(){const links=document.querySelector('.nav-links'),open=links.style.display==='flex';links.style.cssText=open?'':'display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:white;padding:20px 24px 28px;gap:20px;border-bottom:1px solid #E8E9F0;box-shadow:0 8px 24px rgba(0,0,0,.08);z-index:199'});
-const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+// Nav scroll
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// Hamburger
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+let menuOpen = false;
+hamburger.addEventListener('click', () => {
+  menuOpen = !menuOpen;
+  mobileMenu.classList.toggle('open', menuOpen);
+  const spans = hamburger.querySelectorAll('span');
+  if (menuOpen) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+  } else {
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '';
+    spans[2].style.transform = '';
+  }
+});
+function closeMobileMenu() {
+  menuOpen = false;
+  mobileMenu.classList.remove('open');
+  const spans = hamburger.querySelectorAll('span');
+  spans[0].style.transform = '';
+  spans[1].style.opacity = '';
+  spans[2].style.transform = '';
+}
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// Intersection observer for fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      observer.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.1});
+
+document.querySelectorAll('.problem-card, .step-item, .testi-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity .5s ease, transform .5s ease';
+  observer.observe(el);
+});
 </script>
 </body>
 </html>
