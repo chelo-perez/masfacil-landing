@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Calculadora de monotributo 2026 — Facturo Más Fácil</title>
+<meta name="description" content="Calculá gratis qué categoría de monotributo te corresponde según lo que facturaste, cuánto margen te queda y cuánto pagarías de cuota. Valores ARCA vigentes de agosto 2026 a enero 2027."/>
+<meta property="og:title" content="Calculadora de monotributo 2026"/>
+<meta property="og:description" content="¿Te vas a pasar de categoría? Cargá lo que facturaste y en segundos sabés qué categoría te corresponde y cuánto margen te queda."/>
+<meta property="og:url" content="https://masfacil.com.ar/calculadora"/>
+<meta property="og:type" content="website"/>
+<link rel="canonical" href="https://masfacil.com.ar/calculadora"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+:root{--navy:#2C3178;--navy-deep:#1e2256;--coral:#F07B5A;--coral-pale:#fdf1ec;--off-white:#F7F6F4;--carbon:#1A1A2E;--gray-mid:#6E7290;--gray-light:#E8E9F0;--white:#FFFFFF;--green:#1E8E5A;--green-pale:#E8F6EF;--amber:#B7791F;--amber-pale:#FDF6E3;--red:#C0392B;--red-pale:#FDECEA;--font:'Nunito',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--off-white);color:var(--carbon);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+
+nav{background:rgba(255,255,255,.95);border-bottom:1px solid var(--gray-light);position:sticky;top:0;z-index:50}
+.nav-inner{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo img{height:28px;width:auto;display:block}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font);font-weight:800;border:none;border-radius:100px;cursor:pointer;transition:background .2s,transform .15s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px)}
+.btn-navy{background:var(--navy);color:#fff;font-size:14px;padding:10px 20px}
+.btn-navy:hover{background:var(--navy-deep)}
+.btn-wa{background:#25D366;color:#fff;font-size:16px;padding:14px 28px}
+.btn-wa:hover{background:#1ebe5b}
+.btn-ghost{background:transparent;color:var(--navy);font-size:15px;padding:12px 20px;border:2px solid var(--gray-light)}
+.btn-ghost:hover{border-color:var(--navy)}
+
+header{padding:44px 0 24px}
+.label{display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--coral);margin-bottom:14px}
+h1{font-size:clamp(30px,6vw,44px);font-weight:900;line-height:1.1;color:var(--navy);letter-spacing:-1px;margin-bottom:14px}
+h1 em{font-style:normal;color:var(--coral)}
+.lead{font-size:17px;line-height:1.65;color:var(--gray-mid);max-width:600px}
+
+.card{background:#fff;border:1px solid var(--gray-light);border-radius:18px;padding:28px;box-shadow:0 4px 24px rgba(44,49,120,.06)}
+.field{margin-bottom:24px}
+.field:last-of-type{margin-bottom:28px}
+.field-label{display:block;font-size:15px;font-weight:800;color:var(--carbon);margin-bottom:10px}
+.hint{font-size:13px;color:var(--gray-mid);margin-top:8px;line-height:1.5}
+.seg{display:grid;grid-template-columns:1fr 1fr;width:100%;max-width:420px;background:var(--off-white);border:1px solid var(--gray-light);border-radius:100px;padding:4px;margin-bottom:12px}
+.seg button{font-family:var(--font);font-size:13px;white-space:nowrap;font-weight:700;color:var(--gray-mid);background:transparent;border:none;border-radius:100px;padding:8px 16px;cursor:pointer}
+.seg button.on{background:#fff;color:var(--navy);box-shadow:0 1px 4px rgba(44,49,120,.12)}
+.money{position:relative}
+.money span{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:20px;font-weight:800;color:var(--gray-mid)}
+input[type=text],select{width:100%;font-family:var(--font);font-size:20px;font-weight:800;color:var(--carbon);background:#fff;border:2px solid var(--gray-light);border-radius:12px;padding:14px 16px;outline:none;transition:border-color .2s;appearance:none;-webkit-appearance:none}
+.money input{padding-left:40px}
+select{font-size:16px;padding-right:40px;background-image:linear-gradient(45deg,transparent 50%,var(--gray-mid) 50%),linear-gradient(135deg,var(--gray-mid) 50%,transparent 50%);background-position:calc(100% - 22px) 50%,calc(100% - 16px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+input:focus,select:focus{border-color:var(--navy)}
+.err{display:none;font-size:13px;font-weight:700;color:var(--red);margin-top:8px}
+.btn-calc{width:100%;background:var(--coral);color:#fff;font-size:17px;padding:16px}
+.btn-calc:hover{background:#d96845}
+
+#resultado{display:none;margin-top:24px}
+.res-head{display:flex;align-items:center;gap:18px;margin-bottom:22px}
+.badge{flex-shrink:0;width:72px;height:72px;border-radius:18px;background:var(--navy);color:#fff;font-size:40px;font-weight:900;display:flex;align-items:center;justify-content:center}
+.badge.excl{background:var(--red);font-size:30px}
+.res-kicker{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--gray-mid);margin-bottom:4px}
+.res-title{font-size:22px;font-weight:900;color:var(--navy);line-height:1.25}
+.alert{border-radius:12px;padding:14px 16px;font-size:15px;font-weight:600;line-height:1.55;margin-bottom:20px}
+.alert strong{font-weight:900}
+.alert.ok{background:var(--green-pale);color:#145c3b}
+.alert.warn{background:var(--amber-pale);color:#7a5212}
+.alert.bad{background:var(--red-pale);color:#8a2318}
+.alert.info{background:var(--coral-pale);color:#8a3d22}
+.meter{margin-bottom:22px}
+.meter-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:14px;font-weight:700;color:var(--gray-mid);margin-bottom:8px}
+.meter-top b{font-size:16px;color:var(--carbon);font-weight:900}
+.bar{height:12px;background:var(--gray-light);border-radius:100px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:100px;background:var(--green);transition:width .6s cubic-bezier(.22,.68,0,1)}
+.bar i.warn{background:#E0A43A}
+.bar i.bad{background:var(--red)}
+.meter-foot{font-size:13px;color:var(--gray-mid);margin-top:6px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px}
+.stat{background:var(--off-white);border-radius:12px;padding:14px 16px}
+.stat small{display:block;font-size:12px;font-weight:700;color:var(--gray-mid);margin-bottom:4px;line-height:1.35}
+.stat strong{font-size:19px;font-weight:900;color:var(--carbon)}
+
+.cta{margin-top:24px;background:var(--navy);color:#fff;border-radius:18px;padding:28px}
+.cta h2{font-size:22px;font-weight:900;line-height:1.25;margin-bottom:10px}
+.cta p{font-size:15px;line-height:1.6;color:rgba(255,255,255,.75);margin-bottom:20px}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap}
+.cta .btn-ghost{color:#fff;border-color:rgba(255,255,255,.3)}
+.cta .btn-ghost:hover{border-color:#fff}
+
+.tabla{margin-top:40px}
+.tabla h2{font-size:20px;font-weight:900;color:var(--navy);margin-bottom:6px}
+.tabla p{font-size:14px;color:var(--gray-mid);margin-bottom:16px;line-height:1.55}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--gray-light);border-radius:14px;overflow:hidden;font-size:14px}
+th,td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--gray-light);font-variant-numeric:tabular-nums}
+th:first-child,td:first-child{text-align:center;font-weight:900;color:var(--navy)}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-mid);font-weight:800;background:var(--off-white)}
+tr:last-child td{border-bottom:none}
+tr.sel td{background:var(--coral-pale)}
+.legal{font-size:12px;color:var(--gray-mid);line-height:1.6;margin:28px 0 48px}
+
+footer{background:var(--carbon);color:rgba(255,255,255,.4);padding:28px 0;font-size:12px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{color:rgba(255,255,255,.6)}
+
+@media(max-width:560px){
+  .card,.cta{padding:22px 18px}
+  .stats{grid-template-columns:1fr}
+  .nav-inner .btn-navy{font-size:13px;padding:9px 14px}
+  th,td{padding:9px 8px;font-size:13px}
+  .hide-sm{display:none}
+  .btn-wa,.cta .btn-ghost{width:100%}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="/" class="logo"><img src="/logo-facturo.png" alt="Facturo Más Fácil"/></a>
+    <a href="https://app.masfacil.com.ar/ui/registro" class="btn btn-navy">Probar gratis</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <header>
+    <span class="label">Calculadora gratuita · Monotributo 2026</span>
+    <h1>¿Qué categoría de monotributo <em>te corresponde?</em></h1>
+    <p class="lead">Cargá lo que facturaste en los últimos 12 meses y en segundos sabés en qué categoría quedás, cuánto margen te queda y cuánto pagarías de cuota.</p>
+  </header>
+
+  <form class="card" id="calc" novalidate>
+    <div class="field">
+      <label class="field-label" for="monto">¿Cuánto facturaste?</label>
+      <div class="seg" role="group" aria-label="Tipo de monto">
+        <button type="button" class="on" data-modo="anual">Últimos 12 meses</button>
+        <button type="button" data-modo="mensual">Promedio por mes</button>
+      </div>
+      <div class="money">
+        <span>$</span>
+        <input type="text" id="monto" inputmode="numeric" autocomplete="off" placeholder="0"/>
+      </div>
+      <p class="hint" id="monto-hint">Sumá todas las facturas emitidas en los últimos 12 meses.</p>
+      <p class="err" id="monto-err">Ingresá un monto mayor a cero.</p>
+    </div>
+
+    <div class="field">
+      <label class="field-label" for="actual">¿En qué categoría estás hoy?</label>
+      <select id="actual">
+        <option value="">No sé / no estoy inscripto</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label class="field-label" for="actividad">¿Qué actividad tenés?</label>
+      <select id="actividad">
+        <option value="0">Servicios (clases y abonos)</option>
+        <option value="1">Venta de productos</option>
+      </select>
+      <p class="hint">Si hacés las dos, elegí la que te da más ingresos.</p>
+    </div>
+
+    <button type="submit" class="btn btn-calc">Calcular mi categoría</button>
+  </form>
+
+  <section id="resultado" aria-live="polite">
+    <div class="card">
+      <div class="res-head">
+        <div class="badge" id="r-badge">–</div>
+        <div>
+          <div class="res-kicker">Según tus ingresos</div>
+          <div class="res-title" id="r-title"></div>
+        </div>
+      </div>
+      <div class="alert" id="r-alert"></div>
+
+      <div class="meter" id="r-meter-cat">
+        <div class="meter-top"><span id="r-cat-label"></span><b id="r-cat-pct"></b></div>
+        <div class="bar"><i id="r-cat-bar"></i></div>
+        <div class="meter-foot" id="r-cat-foot"></div>
+      </div>
+
+      <div class="meter">
+        <div class="meter-top"><span>Tope máximo del monotributo (categoría K)</span><b id="r-k-pct"></b></div>
+        <div class="bar"><i id="r-k-bar"></i></div>
+        <div class="meter-foot" id="r-k-foot"></div>
+      </div>
+
+      <div class="stats" id="r-stats"></div>
+    </div>
+
+    <div class="cta">
+      <h2>Que este control se haga solo, todos los meses</h2>
+      <p>Facturo Más Fácil emite las facturas de tus alumnos en minutos y te avisa antes de que te acerques al tope de tu categoría, para que no te enteres en la recategorización.</p>
+      <div class="cta-actions">
+        <a id="r-wa" class="btn btn-wa" href="#" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+          Quiero saber más
+        </a>
+        <a class="btn btn-ghost" href="https://app.masfacil.com.ar/ui/registro">Probar 30 días gratis</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tabla">
+    <h2>Categorías de monotributo vigentes</h2>
+    <p>Valores de ARCA de agosto 2026 a enero 2027. La cuota mensual incluye impuesto integrado, aporte jubilatorio y obra social (titular, sin adherentes).</p>
+    <table>
+      <thead><tr><th>Cat.</th><th>Ingresos anuales hasta</th><th>Cuota servicios</th><th class="hide-sm">Cuota productos</th></tr></thead>
+      <tbody id="tabla-body"></tbody>
+    </table>
+  </section>
+
+  <p class="legal">Estimación orientativa basada solo en ingresos brutos de los últimos 12 meses. La categoría también puede depender de otros parámetros, y la cuota no incluye Ingresos Brutos provinciales. La recategorización se hace cada semestre, en enero y julio. Consultá siempre con tu contador antes de tomar una decisión.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Más Fácil SAS &middot; CUIT 30-71675377-4</span>
+    <span><a href="/">masfacil.com.ar</a> &middot; <a href="/terminos">Términos y condiciones</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Tabla ARCA vigente 01/08/2026 – 31/01/2027 (misma que app/monotributo/categorias.py)
+  var CATS = [
+    ["A", 12009410.45,  49527,   49527],
+    ["B", 17595183.14,  56379,   56379],
+    ["C", 24670494.14,  66020,   64531],
+    ["D", 30628651.17,  84613,   82565],
+    ["E", 36028231.40,  119811,  108268],
+    ["F", 45151659.11,  150784,  129931],
+    ["G", 53995799.42,  230313,  158815],
+    ["H", 81924660.23,  522707,  317895],
+    ["I", 91699762.61,  963748,  474993],
+    ["J", 105012519.21, 1167300, 580794],
+    ["K", 126610838.75, 1614446, 702103]
+  ];
+  var TOPE_K = CATS[CATS.length-1][1];
+  var WA_NUM = "5491125051067";
+
+  var $ = function(id){ return document.getElementById(id); };
+  var fmt = function(n){ return "$" + Math.round(n).toLocaleString("es-AR"); };
+  var pct = function(n){ return (n*100).toLocaleString("es-AR",{maximumFractionDigits:0}) + "%"; };
+
+  // Selector de categoría actual y tabla
+  var sel = $("actual"), tb = $("tabla-body");
+  CATS.forEach(function(c){
+    var o = document.createElement("option");
+    o.value = c[0]; o.textContent = "Categoría " + c[0];
+    sel.appendChild(o);
+    var tr = document.createElement("tr");
+    tr.setAttribute("data-cat", c[0]);
+    tr.innerHTML = "<td>"+c[0]+"</td><td>"+fmt(c[1])+"</td><td>"+fmt(c[2])+"</td><td class=\"hide-sm\">"+fmt(c[3])+"</td>";
+    tb.appendChild(tr);
+  });
+
+  // Modo anual / mensual
+  var modo = "anual";
+  document.querySelectorAll(".seg button").forEach(function(b){
+    b.addEventListener("click", function(){
+      document.querySelectorAll(".seg button").forEach(function(x){ x.classList.remove("on"); });
+      b.classList.add("on");
+      modo = b.getAttribute("data-modo");
+      $("monto-hint").textContent = modo === "anual"
+        ? "Sumá todas las facturas emitidas en los últimos 12 meses."
+        : "Lo que facturás en un mes típico. Lo multiplicamos por 12.";
+    });
+  });
+
+  // Formato de miles mientras se escribe
+  var input = $("monto");
+  input.addEventListener("input", function(){
+    var d = input.value.replace(/\D/g, "").replace(/^0+/, "");
+    input.value = d ? Number(d).toLocaleString("es-AR") : "";
+    $("monto-err").style.display = "none";
+  });
+
+  function idx(letra){ for (var i=0;i<CATS.length;i++){ if (CATS[i][0]===letra) return i; } return -1; }
+
+  $("calc").addEventListener("submit", function(e){
+    e.preventDefault();
+    var bruto = Number(input.value.replace(/\D/g, ""));
+    if (!bruto) { $("monto-err").style.display = "block"; input.focus(); return; }
+    var anual = modo === "mensual" ? bruto * 12 : bruto;
+    var act = Number($("actividad").value); // 0 servicios, 1 productos
+    var actual = sel.value;
+    var iAct = idx(actual);
+
+    var iCor = -1;
+    for (var i=0;i<CATS.length;i++){ if (anual <= CATS[i][1]) { iCor = i; break; } }
+    var excluido = iCor === -1;
+
+    // Encabezado
+    var badge = $("r-badge"), alert = $("r-alert");
+    badge.className = "badge" + (excluido ? " excl" : "");
+    badge.textContent = excluido ? "!" : CATS[iCor][0];
+
+    var titulo, clase, msg;
+    if (excluido) {
+      titulo = "Superás el tope del monotributo";
+      clase = "bad";
+      msg = "Con " + fmt(anual) + " en 12 meses pasás el tope de la categoría K (" + fmt(TOPE_K) + "). Con estos ingresos <strong>quedarías excluido del régimen</strong>. Conviene revisarlo cuanto antes con tu contador.";
+    } else {
+      var cat = CATS[iCor][0];
+      titulo = "Te corresponde la categoría " + cat;
+      var uso = anual / CATS[iCor][1];
+      if (iAct === -1) {
+        clase = uso >= 0.8 ? "warn" : "ok";
+        msg = uso >= 0.8
+          ? "Estás usando el <strong>" + pct(uso) + " del tope de la categoría " + cat + "</strong>. Si tu facturación sigue creciendo, en la próxima recategorización podrías subir."
+          : "Estás dentro de la categoría " + cat + " con margen. Te quedan <strong>" + fmt(CATS[iCor][1]-anual) + "</strong> antes del tope.";
+      } else if (iCor > iAct) {
+        clase = "bad";
+        msg = "Hoy estás en <strong>" + actual + "</strong>, pero tus ingresos ya corresponden a la <strong>" + cat + "</strong>. En la próxima recategorización tu cuota pasaría de " + fmt(CATS[iAct][2+act]) + " a <strong>" + fmt(CATS[iCor][2+act]) + " por mes</strong>.";
+      } else if (iCor < iAct) {
+        clase = "info";
+        msg = "Hoy estás en <strong>" + actual + "</strong>, pero tus ingresos corresponden a la <strong>" + cat + "</strong>. En la próxima recategorización tu cuota podría bajar de " + fmt(CATS[iAct][2+act]) + " a <strong>" + fmt(CATS[iCor][2+act]) + " por mes</strong>.";
+      } else if (uso >= 0.8) {
+        clase = "warn";
+        msg = "Seguís en la <strong>" + cat + "</strong>, pero ya usaste el <strong>" + pct(uso) + " del tope</strong>. Te quedan " + fmt(CATS[iCor][1]-anual) + " antes de pasar a la siguiente.";
+      } else {
+        clase = "ok";
+        msg = "Seguís en la <strong>" + cat + "</strong> con margen: te quedan <strong>" + fmt(CATS[iCor][1]-anual) + "</strong> antes del tope.";
+      }
+    }
+    $("r-title").textContent = titulo;
+    alert.className = "alert " + clase;
+    alert.innerHTML = msg;
+
+    // Barra de la categoría
+    var mCat = $("r-meter-cat");
+    if (excluido) {
+      mCat.style.display = "none";
+    } else {
+      mCat.style.display = "";
+      var u = anual / CATS[iCor][1];
+      $("r-cat-label").textContent = "Uso del tope de la categoría " + CATS[iCor][0];
+      $("r-cat-pct").textContent = pct(u);
+      var b = $("r-cat-bar");
+      b.className = u >= 0.9 ? "bad" : (u >= 0.8 ? "warn" : "");
+      b.style.width = Math.min(100, u*100) + "%";
+      $("r-cat-foot").textContent = "Tope: " + fmt(CATS[iCor][1]) + " · Margen: " + fmt(CATS[iCor][1]-anual);
+    }
+
+    // Barra del tope K
+    var uk = anual / TOPE_K, bk = $("r-k-bar");
+    $("r-k-pct").textContent = pct(uk);
+    bk.className = uk >= 0.9 ? "bad" : (uk >= 0.8 ? "warn" : "");
+    bk.style.width = Math.min(100, uk*100) + "%";
+    $("r-k-foot").textContent = excluido
+      ? "Te pasaste por " + fmt(anual - TOPE_K)
+      : "Te faltan " + fmt(TOPE_K - anual) + " para el límite del régimen";
+
+    // Datos
+    var stats = [["Ingresos de 12 meses", fmt(anual)], ["Promedio por mes", fmt(anual/12)]];
+    if (!excluido) stats.push(["Cuota mensual estimada (" + CATS[iCor][0] + ")", fmt(CATS[iCor][2+act])]);
+    if (!excluido) stats.push(["Promedio mensual máximo para seguir en " + CATS[iCor][0], fmt(CATS[iCor][1]/12)]);
+    $("r-stats").innerHTML = stats.map(function(s){ return "<div class=\"stat\"><small>"+s[0]+"</small><strong>"+s[1]+"</strong></div>"; }).join("");
+
+    // Tabla resaltada
+    tb.querySelectorAll("tr").forEach(function(tr){
+      tr.classList.toggle("sel", !excluido && tr.getAttribute("data-cat") === CATS[iCor][0]);
+    });
+
+    // WhatsApp con el resultado
+    var texto = excluido
+      ? "Hola, usé la calculadora de monotributo y me da que paso el tope de la categoría K. Quiero saber cómo me puede ayudar Facturo Más Fácil."
+      : "Hola, usé la calculadora de monotributo y me corresponde la categoría " + CATS[iCor][0] + (iAct !== -1 ? " (hoy estoy en " + actual + ")" : "") + ". Quiero saber más sobre Facturo Más Fácil.";
+    $("r-wa").href = "https://wa.me/" + WA_NUM + "?text=" + encodeURIComponent(texto);
+
+    var res = $("resultado");
+    res.style.display = "block";
+    res.scrollIntoView({behavior:"smooth", block:"start"});
+  });
+})();
+</script>
+</body>
+</html>
