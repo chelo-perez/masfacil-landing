@@ -1,4 +1,8 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/terminos", "destination": "https://app.masfacil.com.ar/terminos", "permanent": false },
+    { "source": "/terminos-y-condiciones", "destination": "https://app.masfacil.com.ar/terminos", "permanent": false }
+  ]
 }
