@@ -855,6 +855,11 @@ footer{background:var(--carbon);padding:64px 0 40px}
           <div class="form-field">
             <label for="f_whatsapp">WhatsApp</label>
             <input type="tel" id="f_whatsapp" name="whatsapp" required autocomplete="tel" placeholder="11 5555 5555">
+            <!-- Campo trampa contra bots: invisible para las personas. Si llega completo, la app descarta el envío. -->
+            <div style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+              <label for="f_sitio">Sitio web</label>
+              <input type="text" id="f_sitio" name="sitio_web" tabindex="-1" autocomplete="off" value="">
+            </div>
           </div>
         </div>
         <div class="form-row" id="row_regimen">
