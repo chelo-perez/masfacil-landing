@@ -12,23 +12,5 @@
       "destination": "https://app.masfacil.com.ar/terminos",
       "permanent": false
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/trabajo",
-      "destination": "https://trabajo-mas-facil-uzk6zjlax-yy3roxz8-ao.expo.app/"
-    },
-    {
-      "source": "/trabajo/:path*",
-      "destination": "https://trabajo-mas-facil-uzk6zjlax-yy3roxz8-ao.expo.app/:path*"
-    },
-    {
-      "source": "/_expo/:path*",
-      "destination": "https://trabajo-mas-facil-uzk6zjlax-yy3roxz8-ao.expo.app/_expo/:path*"
-    },
-    {
-      "source": "/assets/:path*",
-      "destination": "https://trabajo-mas-facil-uzk6zjlax-yy3roxz8-ao.expo.app/assets/:path*"
-    }
   ]
 }
