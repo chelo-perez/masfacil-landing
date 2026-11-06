@@ -141,13 +141,6 @@ h2{font-size:34px;font-weight:800}
 
 /* ENTIDADES */
 .ent{padding:80px 0}
-.ent-in{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.ent ul{list-style:none;display:grid;gap:12px;margin-top:22px}
-.ent li{display:flex;gap:12px;font-size:15px;color:var(--ink-2)}
-.ent li svg{flex:none;width:20px;height:20px;color:var(--aqua);margin-top:2px}
-.ent-card{background:var(--bg-alt);border-radius:18px;padding:30px}
-.ent-card h3{font-size:20px;margin-bottom:10px}
-.ent-card p{font-size:15px;color:var(--ink-2);margin-bottom:18px}
 
 /* FAQ */
 .faq{padding:88px 0;background:var(--bg-alt)}
@@ -184,6 +177,87 @@ h2{font-size:34px;font-weight:800}
   .sticky{display:block}body{padding-bottom:76px}
 }
 @media (max-width:560px){.plans{grid-template-columns:1fr}}
+
+/* ÍCONOS Y MOVIMIENTO */
+.step-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.step-ic{width:42px;height:42px;border-radius:12px;background:var(--aqua-soft);color:var(--teal);display:flex;align-items:center;justify-content:center}
+.step-ic svg,.ic-wrap svg,.mini-ic svg{width:22px;height:22px}
+.step-top .step-n{margin:0}
+.step,.prop,.plan,.ent-item{transition:transform .25s ease,box-shadow .25s ease}
+.step:hover,.plan:hover,.ent-item:hover{transform:translateY(-4px);box-shadow:0 18px 36px -24px rgba(22,50,53,.45)}
+.prop:hover .ic-wrap,.ent-item:hover .ic-wrap{transform:scale(1.08) rotate(-4deg)}
+.ic-wrap{transition:transform .25s ease}
+.btn{transition:background .15s,color .15s,border-color .15s,transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn svg{width:18px;height:18px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+.steps .reveal:nth-child(2),.props-grid .reveal:nth-child(2),.ent-grid .reveal:nth-child(2),.plans .reveal:nth-child(2){transition-delay:.12s}
+.steps .reveal:nth-child(3),.props-grid .reveal:nth-child(3),.ent-grid .reveal:nth-child(3),.plans .reveal:nth-child(3){transition-delay:.24s}
+.ent-grid .reveal:nth-child(4),.plans .reveal:nth-child(4){transition-delay:.36s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes pop{0%{transform:scale(.7);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(31,157,106,.45)}60%{box-shadow:0 0 0 7px rgba(31,157,106,0)}}
+.shot-anim{animation:rise .7s ease both,float 6s ease-in-out 1s infinite}
+.shot-anim .need span{animation:rise .5s ease both;animation-delay:.3s}
+.shot-anim .need span:nth-child(2){animation-delay:.42s}.shot-anim .need span:nth-child(3){animation-delay:.54s}
+.shot-anim .inst{animation:rise .6s ease both;animation-delay:.6s}
+.shot-anim .inst+.inst{animation-delay:.85s}
+.shot-anim .offer{animation:rise .6s ease both;animation-delay:1.1s}
+.shot-anim .match{animation:pop .5s cubic-bezier(.2,.9,.3,1.4) both;animation-delay:1s}
+.shot-anim .inst+.inst .match{animation-delay:1.2s}
+.live{display:inline-flex;align-items:center;gap:6px;color:var(--green);font-weight:700}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.6s ease-out infinite}
+.apply .pick{transition:transform .15s}.apply:hover .pick{transform:scale(1.06)}
+
+/* INSTRUCTORES: cierre */
+.inst-cta{margin-top:32px;background:var(--petrol);color:#fff;border-radius:18px;padding:28px}
+.inst-cta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:22px}
+.mini{display:grid;gap:6px;font-size:13px;color:rgba(255,255,255,.78)}
+.mini b{color:#fff;font-size:15px}
+.mini-ic{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.1);color:var(--aqua-bright);display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.inst-cta-row{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.14);padding-top:22px;flex-wrap:wrap}
+.inst-cta-row b{display:block;font-size:17px;color:#fff}
+.inst-cta-row span{font-size:14px;color:rgba(255,255,255,.75)}
+.inst-cta .btn-primary{background:var(--aqua-bright);color:var(--petrol)}
+.inst-cta .btn-primary:hover{background:#fff}
+
+/* ENTIDADES (nuevo) */
+.ent{padding:88px 0;background:var(--bg)}
+.ent-head{max-width:720px;margin-bottom:40px}
+.ent-head h2{margin-bottom:12px}
+.ent-head .lead{max-width:720px}
+.ent-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:40px}
+.ent-item{background:var(--bg-alt);border-radius:var(--radius);padding:24px;border:1px solid var(--line)}
+.ent-item .ic-wrap{width:44px;height:44px;border-radius:12px;background:#fff;color:var(--teal);display:flex;align-items:center;justify-content:center;margin-bottom:14px;border:1px solid var(--line)}
+.ent-item h3{font-size:18px;font-weight:800;margin-bottom:8px}
+.ent-item p{font-size:15px;color:var(--ink-2)}
+.ent-bottom{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+.ent-steps h3{font-size:22px;margin-bottom:18px}
+.ent-steps ol{list-style:none;display:grid;gap:16px}
+.ent-steps li{display:flex;gap:14px;align-items:flex-start}
+.ent-steps .n{flex:none;width:32px;height:32px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.ent-steps li b{display:block;font-size:16px;color:var(--petrol)}
+.ent-steps li span:not(.n){font-size:14px;color:var(--ink-2)}
+.ent-card{background:var(--bg-alt);border-radius:18px;padding:26px;border:1px solid var(--line)}
+.ent-card h3{font-size:20px;margin:18px 0 8px}
+.ent-card p{font-size:15px;color:var(--ink-2);margin-bottom:18px}
+.ent-btns{display:flex;gap:12px;flex-wrap:wrap}
+.panel{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:13px}
+.panel-top{display:flex;justify-content:space-between;padding:10px 14px;background:var(--petrol-2);color:#fff;font-weight:700;font-size:12px}
+.panel-top span:last-child{color:rgba(255,255,255,.7);font-weight:500}
+.panel-row{display:flex;align-items:center;gap:8px;padding:11px 14px;border-top:1px solid var(--line)}
+.panel-row b{flex:1;font-size:13px}
+.panel-row .dot{width:8px;height:8px;border-radius:50%;background:var(--amber);animation:pulse 1.6s ease-out infinite}
+.pill{font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px}
+.pill.warn{background:#FBF1D6;color:#8A6208}.pill.ok{background:#E3F5EC;color:#177A52}
+.panel-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px 14px;border-top:1px solid var(--line)}
+.panel-kpis div{background:var(--bg-alt);border-radius:10px;padding:10px}
+.panel-kpis b{display:block;font-size:20px;color:var(--teal)}
+.panel-kpis small{font-size:11px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.shot-anim,.shot-anim *{animation:none!important}.live i,.panel-row .dot{animation:none}}
+@media (max-width:900px){.inst-cta-grid,.ent-grid,.ent-bottom{grid-template-columns:1fr}.inst-cta-row{flex-direction:column;align-items:flex-start}.inst-cta-row .btn{width:100%}}
 </style>
 </head>
 <body>
@@ -192,7 +266,8 @@ h2{font-size:34px;font-weight:800}
   <div class="wrap nav-in">
     <a href="/trabajo" aria-label="Trabajo Más Fácil"><img class="logo" src="/logo-trabajo.png" alt="Trabajo Más Fácil"/></a>
     <nav class="nav-links">
-      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#como-funciona">Estudios</a>
+      <a href="#instructores">Instructores</a>
       <a href="#clases-abiertas">Clases abiertas</a>
       <a href="#planes">Planes</a>
       <a href="#entidades">Entidades</a>
@@ -203,7 +278,8 @@ h2{font-size:34px;font-weight:800}
     <button class="burger" id="burger" aria-label="Menú" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
   <div class="mnav" id="mnav">
-    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#como-funciona">Estudios</a>
+    <a href="#instructores">Instructores</a>
     <a href="#clases-abiertas">Clases abiertas</a>
     <a href="#planes">Planes</a>
     <a href="#entidades">Entidades</a>
@@ -221,11 +297,11 @@ h2{font-size:34px;font-weight:800}
       <p class="lead">Estudios e instructores conectados dentro de redes coordinadas por cámaras y asociaciones del sector. Decís qué clase necesitás, ves quién encaja, ofrecés un precio y confirmás.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="https://app.trabajo.masfacil.com.ar">Tengo un estudio</a>
-        <a class="btn btn-ghost" href="https://app.trabajo.masfacil.com.ar">Soy instructor/a</a>
+        <a class="btn btn-ghost" href="#instructores">Soy instructor/a</a>
       </div>
       <p class="hero-note"><b>Gratis para instructores</b> · Los estudios empiezan con 1 propuesta por mes sin costo · Disponible en la web y en Android</p>
     </div>
-    <div class="shot" aria-hidden="true">
+    <div class="shot shot-anim" aria-hidden="true">
       <div class="shot-top"><span class="shot-title">Buscar instructor</span><span class="shot-period">Ordenados para esta clase</span></div>
       <div class="shot-body">
         <div class="need"><span class="on">Reemplazo</span><span>jueves 6 de noviembre</span><span>18:00 → 19:00</span></div>
@@ -245,17 +321,17 @@ h2{font-size:34px;font-weight:800}
 
 <section class="props">
   <div class="wrap props-grid">
-    <div class="prop">
+    <div class="prop reveal">
       <div class="ic-wrap"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
       <h3>Verificados por la entidad</h3>
       <p>Cada instructor es revisado por la cámara, asociación o escuela que coordina su red: identidad y certificados. Ningún perfil aparece en las búsquedas antes de eso.</p>
     </div>
-    <div class="prop">
+    <div class="prop reveal">
       <div class="ic-wrap"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
       <h3>Match por la clase, no por filtros</h3>
       <p>Decís el día, el horario y el tipo de clase. El orden se arma para esa clase: zona, equipamiento, disponibilidad y lo que cada uno hizo en la red, no lo que dice de sí mismo.</p>
     </div>
-    <div class="prop">
+    <div class="prop reveal">
       <div class="ic-wrap"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
       <h3>Precio claro, sin sorpresas</h3>
       <p>El estudio ofrece un monto por clase. El instructor lo compara con su tarifa, que es privada, y acepta, rechaza o propone otro. Lo acordado queda registrado.</p>
@@ -265,29 +341,41 @@ h2{font-size:34px;font-weight:800}
 
 <section class="how" id="como-funciona">
   <div class="wrap">
-    <div class="how-head"><p class="kicker">Para estudios</p><h2>Tres pasos para cubrir una clase</h2><p class="lead">Desde el celular o la web, en el momento en que surge la necesidad.</p></div>
+    <div class="how-head reveal"><p class="kicker">Para estudios</p><h2>Tres pasos para cubrir una clase</h2><p class="lead">Desde el celular o la web, en el momento en que surge la necesidad.</p></div>
     <div class="steps">
-      <div class="step"><div class="step-n">01</div><h3>Decí qué necesitás</h3><p>Reemplazo o clase regular, el día y el horario. Los instructores de tu red aparecen ordenados para esa clase, con las razones a la vista.</p></div>
-      <div class="step"><div class="step-n">02</div><h3>Ofrecé un precio</h3><p>Elegís a quién proponerle y cuánto pagás por clase, con la referencia de tu red. Cada propuesta llega con aviso al celular.</p></div>
-      <div class="step"><div class="step-n">03</div><h3>Confirmá y evaluá</h3><p>El instructor acepta, rechaza o contraoferta. Después de la clase, los dos se evalúan: eso ordena las próximas búsquedas.</p></div>
+      <div class="step reveal"><div class="step-top"><div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div><div class="step-n">01</div></div><h3>Decí qué necesitás</h3><p>Reemplazo o clase regular, el día y el horario. Los instructores de tu red aparecen ordenados para esa clase, con las razones a la vista.</p></div>
+      <div class="step reveal"><div class="step-top"><div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="step-n">02</div></div><h3>Ofrecé un precio</h3><p>Elegís a quién proponerle y cuánto pagás por clase, con la referencia de tu red. Cada propuesta llega con aviso al celular.</p></div>
+      <div class="step reveal"><div class="step-top"><div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.1V12a10 10 0 11-5.9-9.1"/><path d="M22 4L12 14l-3-3"/></svg></div><div class="step-n">03</div></div><h3>Confirmá y evaluá</h3><p>El instructor acepta, rechaza o contraoferta. Después de la clase, los dos se evalúan: eso ordena las próximas búsquedas.</p></div>
     </div>
   </div>
 </section>
 
-<section class="how">
+<section class="how" id="instructores">
   <div class="wrap">
-    <div class="how-head"><p class="kicker">Para instructores</p><h2>Más clases, con las reglas claras</h2><p class="lead">Es gratis. Tu tarifa es privada: los estudios nunca la ven, solo ofrecen un monto.</p></div>
+    <div class="how-head reveal"><p class="kicker">Para instructores</p><h2>Más clases, con las reglas claras</h2><p class="lead">Es gratis. Tu tarifa es privada: los estudios nunca la ven, solo ofrecen un monto.</p></div>
     <div class="steps">
-      <div class="step"><div class="step-n">01</div><h3>Armá tu perfil</h3><p>Certificados, equipamiento que manejás, barrios donde trabajás y tus horarios. La entidad de tu red te verifica.</p></div>
-      <div class="step"><div class="step-n">02</div><h3>Marcá dónde querés trabajar</h3><p>Con "Me interesa" el estudio te ve primero cuando busca. Y antes de aceptar una propuesta ves cómo paga y cómo trata ese estudio.</p></div>
-      <div class="step"><div class="step-n">03</div><h3>Respondé en un toque</h3><p>Te llega la propuesta con fecha, horario y monto. Aceptás, rechazás o proponés otro monto, una vez. Nadie negocia a ciegas.</p></div>
+      <div class="step reveal"><div class="step-top"><div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="step-n">01</div></div><h3>Armá tu perfil</h3><p>Certificados, equipamiento que manejás, barrios donde trabajás y tus horarios. La entidad de tu red te verifica.</p></div>
+      <div class="step reveal"><div class="step-top"><div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 00-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 000-7.8z"/></svg></div><div class="step-n">02</div></div><h3>Marcá dónde querés trabajar</h3><p>Con "Me interesa" el estudio te ve primero cuando busca. Y antes de aceptar una propuesta ves cómo paga y cómo trata ese estudio.</p></div>
+      <div class="step reveal"><div class="step-top"><div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg></div><div class="step-n">03</div></div><h3>Respondé en un toque</h3><p>Te llega la propuesta con fecha, horario y monto. Aceptás, rechazás o proponés otro monto, una vez. Nadie negocia a ciegas.</p></div>
+    </div>
+    <div class="inst-cta reveal">
+      <div class="inst-cta-grid">
+        <div class="mini"><div class="mini-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><b>Verificación real</b><span>Tu perfil se revisa una vez. Después, los estudios te encuentran por lo que sabés hacer y cuándo podés.</span></div>
+        <div class="mini"><div class="mini-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><b>Tu tarifa, privada</b><span>Vos cargás un mínimo que nadie ve. Si la oferta no llega, lo decís con una contraoferta.</span></div>
+        <div class="mini"><div class="mini-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><b>Clases abiertas</b><span>Reemplazos urgentes publicados por estudios de tu red: te avisamos y te anotás en un toque.</span></div>
+        <div class="mini"><div class="mini-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div><b>Vos también evaluás</b><span>Después de cada clase decís cómo fue y si te pagaron lo acordado. Eso ordena a los estudios.</span></div>
+      </div>
+      <div class="inst-cta-row">
+        <div><b>Sin costo, hoy y siempre.</b><span>Creás tu perfil en 5 minutos. La entidad de tu red lo verifica y empezás a recibir propuestas.</span></div>
+        <a class="btn btn-primary" href="https://app.trabajo.masfacil.com.ar">Crear mi perfil gratis</a>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="open" id="clases-abiertas">
   <div class="wrap open-in">
-    <div>
+    <div class="reveal">
       <p class="kicker">Clases abiertas</p>
       <h2>¿Reemplazo urgente? Publicalo y que se anoten</h2>
       <p class="lead">Cuando no hay tiempo de proponer de a uno, publicás la clase con el monto. Los instructores compatibles de tu red reciben el aviso y se anotan. Vos elegís entre los anotados y la clase queda confirmada.</p>
@@ -297,9 +385,9 @@ h2{font-size:34px;font-weight:800}
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>La clase vence sola a la hora de inicio. Nada queda colgado.</li>
       </ul>
     </div>
-    <div class="phone" aria-hidden="true">
+    <div class="phone reveal" aria-hidden="true">
       <div class="t">jueves 6 de noviembre · 18:00–19:00</div>
-      <div class="s">Reemplazo · $18.000 por clase · Abierta</div>
+      <div class="s">Reemplazo · $18.000 por clase · <span class="live"><i></i>Abierta</span></div>
       <div class="apply"><div class="av">L</div><div><b>Lucía Fernández</b><small>Palermo · 14 clases · pagó lo acordado 14/14</small></div><span class="pick">Elegir</span></div>
       <div class="apply"><div class="av">C</div><div><b>Carla Méndez</b><small>Villa Crespo · 6 clases · puntaje 8,9</small></div><span class="pick">Elegir</span></div>
       <div class="apply"><div class="av">M</div><div><b>Martín Sosa</b><small>Belgrano · ya trabajaron juntos</small></div><span class="pick">Elegir</span></div>
@@ -309,24 +397,24 @@ h2{font-size:34px;font-weight:800}
 
 <section class="pricing" id="planes">
   <div class="wrap">
-    <div class="pricing-head"><p class="kicker">Planes para estudios</p><h2>Empezás gratis. Pagás cuando lo usás.</h2><p class="lead">Para los instructores la app no tiene costo. Los estudios eligen según cuántas propuestas envían por mes.</p></div>
+    <div class="pricing-head reveal"><p class="kicker">Planes para estudios</p><h2>Empezás gratis. Pagás cuando lo usás.</h2><p class="lead">Para los instructores la app no tiene costo. Los estudios eligen según cuántas propuestas envían por mes.</p></div>
     <div class="plans">
-      <div class="plan"><h3>Freemium</h3><div class="pp">Sin costo</div><ul>
+      <div class="plan reveal"><h3>Freemium</h3><div class="pp">Sin costo</div><ul>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>1 propuesta por mes</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Directorio de instructores verificados</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Historial y evaluaciones</li></ul>
         <a class="btn btn-ghost" href="https://app.trabajo.masfacil.com.ar">Crear cuenta</a></div>
-      <div class="plan hl"><h3>Starter</h3><div class="pp">Mensual · precio según tu red</div><ul>
+      <div class="plan hl reveal"><h3>Starter</h3><div class="pp">Mensual · precio según tu red</div><ul>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>5 propuestas por mes</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Clases abiertas</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Débito automático, cancelás cuando quieras</li></ul>
         <a class="btn btn-primary" href="https://app.trabajo.masfacil.com.ar">Suscribir mi estudio</a></div>
-      <div class="plan"><h3>Premium</h3><div class="pp">Mensual · precio según tu red</div><ul>
+      <div class="plan reveal"><h3>Premium</h3><div class="pp">Mensual · precio según tu red</div><ul>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Propuestas sin límite</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Clases abiertas</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Para estudios con varias sedes o rotación alta</li></ul>
         <a class="btn btn-ghost" href="https://app.trabajo.masfacil.com.ar">Suscribir mi estudio</a></div>
-      <div class="plan"><h3>Socio</h3><div class="pp">Con la cuota de tu entidad</div><ul>
+      <div class="plan reveal"><h3>Socio</h3><div class="pp">Con la cuota de tu entidad</div><ul>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>5 propuestas por mes</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Insignia de socio en tu perfil</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Lo gestiona tu cámara o asociación</li></ul>
@@ -337,21 +425,36 @@ h2{font-size:34px;font-weight:800}
 </section>
 
 <section class="ent" id="entidades">
-  <div class="wrap ent-in">
-    <div>
-      <p class="kicker">Para cámaras, asociaciones, colegios y escuelas</p>
-      <h2>Tu red, con una herramienta que trabaja para vos</h2>
-      <p class="lead">Trabajo Más Fácil funciona por redes: cada una la coordina una entidad del sector, que verifica a los profesionales y acompaña a los negocios.</p>
-      <ul>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Panel para verificar instructores y certificados desde el celular.</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Reportes de actividad y calidad de la red, incluido cómo pagan los estudios.</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Sin costo para la entidad, y con una parte de los abonos de su red.</li>
-      </ul>
+  <div class="wrap">
+    <div class="ent-head reveal"><p class="kicker">Para cámaras, asociaciones, colegios y escuelas</p><h2>La red es tuya. La herramienta la ponemos nosotros.</h2><p class="lead">Trabajo Más Fácil funciona por redes. Cada red la coordina una entidad del sector: verifica a los profesionales, acompaña a los negocios y define las reglas. Sin costo para la entidad, y con ingresos.</p></div>
+    <div class="ent-grid">
+      <div class="ent-item reveal"><div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Verificás desde el celular</h3><p>Cada instructor que se registra te llega para revisar: identidad, certificados y, si hace falta, un pedido de corrección. Hasta que no lo apruebes, no aparece.</p></div>
+      <div class="ent-item reveal"><div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg></div><h3>Tus reglas, tu criterio</h3><p>Definís los rangos de tarifa de referencia, quiénes son socios y qué beneficios tienen. Podés cargar tu padrón para que tus instructores reclamen su perfil.</p></div>
+      <div class="ent-item reveal"><div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><h3>Ves lo que pasa en tu red</h3><p>Reportes de propuestas, clases concretadas, evaluaciones y problemas reportados. Y algo que hoy nadie te muestra: qué estudios pagan lo que acuerdan.</p></div>
+      <div class="ent-item reveal"><div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5L5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></div><h3>Ingresos para la entidad</h3><p>Nosotros cobramos los abonos de los estudios y te liquidamos todos los meses un porcentaje de lo recaudado en tu red. Vos facturás, nosotros transferimos. Todo queda a la vista en tu panel.</p></div>
     </div>
-    <div class="ent-card">
-      <h3>¿Coordinás un sector?</h3>
-      <p>Pilates fue el primero. Gimnasios, danza, yoga, natación o cualquier rubro donde haya negocios que necesitan profesionales y una entidad que los conoce. Contanos y armamos tu red.</p>
-      <a class="btn btn-primary" href="mailto:info@masfacil.com.ar?subject=Trabajo%20M%C3%A1s%20F%C3%A1cil%20%C2%B7%20Nueva%20red">Escribinos</a>
+    <div class="ent-bottom">
+      <div class="ent-steps reveal">
+        <h3>Cómo arrancamos</h3>
+        <ol>
+          <li><span class="n">1</span><div><b>Charlamos</b><span>Nos contás cómo trabaja tu sector: qué negocios, qué profesionales, qué se verifica. Definimos la red y el porcentaje.</span></div></li>
+          <li><span class="n">2</span><div><b>Armamos tu panel</b><span>Creamos la red con el nombre de tu entidad, sumamos a tu equipo y, si querés, cargamos tu padrón de socios e instructores.</span></div></li>
+          <li><span class="n">3</span><div><b>Lanzamos con tus socios</b><span>Les avisás a tus estudios e instructores, verificás a los primeros y la red empieza a girar. Nosotros acompañamos.</span></div></li>
+        </ol>
+      </div>
+      <div class="ent-card reveal">
+        <div class="panel" aria-hidden="true">
+          <div class="panel-top"><span>Panel de la entidad</span><span>Noviembre</span></div>
+          <div class="panel-row"><span class="dot"></span><b>Para revisar</b><span class="pill warn">2 instructores</span></div>
+          <div class="panel-kpis"><div><b>38</b><small>verificados</small></div><div><b>21</b><small>estudios</small></div><div><b>9</b><small>socios</small></div></div>
+          <div class="panel-row"><b>Liquidación de octubre</b><span class="pill ok">Pagada</span></div>
+        </div>
+        <h3>¿Coordinás un sector?</h3>
+        <p>Pilates fue el primero. Gimnasios, danza, yoga, natación o cualquier rubro donde haya negocios que necesitan profesionales y una entidad que los conoce.</p>
+        <div class="ent-btns">
+          <a class="btn btn-primary" href="mailto:info@masfacil.com.ar?subject=Trabajo%20M%C3%A1s%20F%C3%A1cil%20%C2%B7%20Nueva%20red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>Escribinos</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -369,7 +472,7 @@ h2{font-size:34px;font-weight:800}
 </section>
 
 <section class="cta">
-  <div class="wrap">
+  <div class="wrap reveal">
     <h2>La próxima clase, cubierta.</h2>
     <p class="lead">Creá tu cuenta en un minuto. Es gratis para instructores y los estudios empiezan sin costo.</p>
     <div class="cta-btns">
@@ -400,6 +503,8 @@ h2{font-size:34px;font-weight:800}
   b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
   m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open')})});
   document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.parentNode.classList.toggle('open')})});
+  var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12}):null;
+  document.querySelectorAll('.reveal').forEach(function(el){io?io.observe(el):el.classList.add('in')});
   if(location.hash==='#eliminar-cuenta'){var e=document.getElementById('eliminar-cuenta');e&&e.classList.add('open')}
 })();
 </script>
