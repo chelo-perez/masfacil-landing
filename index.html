@@ -84,7 +84,9 @@ h2{font-size:34px;font-weight:800}
 .mnav{display:none;border-top:1px solid var(--line);background:#fff;padding:12px 32px 20px}
 .mnav.open{display:block}
 .mnav a{display:block;padding:12px 0;font-weight:600;color:var(--ink-2);border-bottom:1px solid var(--line)}
-.mnav .btn{margin-top:14px;width:100%}
+.mnav .btn{display:flex;margin-top:12px;width:100%;padding:0 26px}
+.mnav .btn-primary{color:#fff;border:1.5px solid transparent}
+.mnav .btn-ghost{color:var(--navy);border:1.5px solid var(--line)}
 
 /* HERO */
 .hero{padding:84px 0 72px}
@@ -242,11 +244,29 @@ h2{font-size:34px;font-weight:800}
 .footer-links{display:flex;gap:20px;flex-wrap:wrap}
 .footer-links a:hover{color:var(--navy)}
 
+/* SEGUNDA PUERTA */
+.door{padding:72px 0;background:var(--bg-alt);border-top:1px solid var(--line)}
+.door-head{max-width:680px;margin-bottom:32px}
+.door-head h2{margin-bottom:12px}
+.door-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.door-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:border-color .15s,transform .15s}
+.door-card:hover{border-color:var(--navy);transform:translateY(-2px)}
+.door-card h3{font-size:17px;font-weight:800;margin-bottom:8px;color:var(--ink)}
+.door-card p{font-size:14.5px;color:var(--ink-2);margin-bottom:18px;flex:1}
+.door-go{font-size:14px;font-weight:800;color:var(--coral)}
+.door-alt{margin-top:24px;font-size:14px;color:var(--ink-2)}
+.door-alt a{color:#128C4A;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+
+/* WHATSAPP */
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:45;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 20px 13px 16px;border-radius:999px;font-size:14.5px;font-weight:800;box-shadow:0 6px 24px rgba(37,211,102,.36);transition:transform .18s,box-shadow .18s,bottom .25s}
+.wa-float:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(37,211,102,.46)}
+.wa-float svg{flex-shrink:0}
+
 /* MOBILE */
 .sticky{display:none}
 @media(max-width:960px){
   .hero-in,.calc-in,.control-in{grid-template-columns:1fr;gap:40px}
-  .props-grid,.steps{grid-template-columns:1fr;gap:24px}
+  .props-grid,.steps,.door-grid{grid-template-columns:1fr;gap:24px}
   .hero h1{font-size:40px}
 }
 @media(max-width:680px){
@@ -259,7 +279,8 @@ h2{font-size:34px;font-weight:800}
   h2{font-size:28px}
   .hero-cta .btn{width:100%}
   .plans{grid-template-columns:1fr}
-  .props,.how,.calc,.control,.pricing,.faq{padding:56px 0}
+  .props,.how,.calc,.control,.pricing,.faq,.door{padding:56px 0}
+  .door-grid{gap:14px}
   .cta h2{font-size:28px}
   .cta .btn{width:100%}
   .res-cat{font-size:34px}
@@ -269,7 +290,11 @@ h2{font-size:34px;font-weight:800}
   .tabla th,.tabla td{padding:8px 12px;font-size:12px}
   .sticky{display:block;position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);border-top:1px solid var(--line);z-index:40;transform:translateY(110%);transition:transform .25s}
   .sticky.show{transform:none}
-  .sticky .btn{width:100%}
+  .sticky-in{display:flex;gap:10px}
+  .sticky .btn{flex:1;height:46px;padding:0 12px;font-size:14.5px}
+  .wa-float{right:14px;bottom:14px;padding:13px;font-size:0;gap:0}
+  .wa-float span{display:none}
+  body.sticky-on .wa-float{bottom:82px}
   body.has-sticky{padding-bottom:72px}
 }
 </style>
@@ -285,7 +310,8 @@ h2{font-size:34px;font-weight:800}
       <a href="#precios">Precios</a>
       <a href="#faq">Preguntas</a>
       <a class="nav-login" href="https://app.masfacil.com.ar/ui/login">Ingresar</a>
-      <a class="btn btn-primary" href="https://app.masfacil.com.ar/register">Probar gratis</a>
+      <a class="btn btn-ghost" href="https://app.masfacil.com.ar/demo" data-cta="demo_nav">Ver la demo</a>
+      <a class="btn btn-primary" href="https://app.masfacil.com.ar/register" data-cta="registro_nav">Probar gratis</a>
     </nav>
     <button class="burger" id="burger" aria-label="Menú" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
@@ -294,8 +320,10 @@ h2{font-size:34px;font-weight:800}
     <a href="#calculadora">Calculadora</a>
     <a href="#precios">Precios</a>
     <a href="#faq">Preguntas</a>
+    <a href="#mas-de-uno">Varios monotributistas, RI o contador</a>
     <a href="https://app.masfacil.com.ar/ui/login">Ingresar</a>
-    <a class="btn btn-primary" href="https://app.masfacil.com.ar/register">Probar gratis 30 días</a>
+    <a class="btn btn-primary" href="https://app.masfacil.com.ar/demo" data-cta="demo_menu">Probá la demo</a>
+    <a class="btn btn-ghost" href="https://app.masfacil.com.ar/register" data-cta="registro_menu">Empezá gratis 30 días</a>
   </div>
 </header>
 
@@ -306,10 +334,11 @@ h2{font-size:34px;font-weight:800}
       <h1>Menos tiempo en ARCA.<br>Más tiempo en lo que importa.<br><span class="accent">Facturo</span> Más Fácil.</h1>
       <p class="lead">Conectás tus cobros, revisás qué corresponde facturar y emitís todo en ARCA en una sola operación. Y sabés cada día en qué categoría de monotributo estás.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="https://app.masfacil.com.ar/register">Probar gratis 30 días</a>
-        <a class="btn btn-ghost" href="#calculadora">Calcular mi categoría</a>
+        <a class="btn btn-primary" href="https://app.masfacil.com.ar/demo" data-cta="demo_hero">Probá la demo</a>
+        <a class="btn btn-ghost" href="https://app.masfacil.com.ar/register" data-cta="registro_hero">Empezá gratis 30 días</a>
       </div>
-      <p class="hero-note">Sin tarjeta de crédito · <b>Desarrollado por un contador público</b> · Para monotributistas y responsables inscriptos</p>
+      <p class="hero-note">La demo es la app real con datos de ejemplo: entrás sin registrarte y probás emitir. Los 30 días gratis son sin tarjeta.</p>
+      <p class="hero-note" style="margin-top:6px"><b>Desarrollado por un contador público</b> · Para monotributistas y responsables inscriptos</p>
     </div>
     <div class="shot" aria-hidden="true">
       <div class="shot-top"><span class="shot-title">Mi emprendimiento</span><span class="shot-period">Octubre 2026</span></div>
@@ -425,7 +454,7 @@ h2{font-size:34px;font-weight:800}
           <div class="meter-h"><span>Tope de exclusión (K) · $ 126,6 M</span><span id="m2-v">—</span></div>
           <div class="bar"><i id="m2-b" style="width:0"></i></div>
         </div>
-        <a class="btn btn-primary res-cta" href="https://app.masfacil.com.ar/register">Controlar mi categoría todos los meses</a>
+        <a class="btn btn-primary res-cta" href="https://app.masfacil.com.ar/register" data-cta="registro_calculadora">Controlar mi categoría todos los meses</a>
         <div class="res-foot">30 días gratis · Sin tarjeta</div>
       </div>
     </div>
@@ -480,7 +509,7 @@ h2{font-size:34px;font-weight:800}
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>Control de categoría y avisos</span></li>
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>Reporte mensual para el contador</span></li>
         </ul>
-        <a class="btn btn-navy" href="https://app.masfacil.com.ar/register">Probar gratis 30 días</a>
+        <a class="btn btn-navy" href="https://app.masfacil.com.ar/register" data-cta="registro_basico">Probar gratis 30 días</a>
         <div class="plan-foot">Sin tarjeta · Cancelás cuando quieras</div>
       </div>
       <div class="plan hl">
@@ -493,11 +522,39 @@ h2{font-size:34px;font-weight:800}
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>Control de categoría por CUIT</span></li>
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span>Reporte mensual por monotributista</span></li>
         </ul>
-        <a class="btn btn-primary" href="https://app.masfacil.com.ar/register">Probar gratis 30 días</a>
+        <a class="btn btn-primary" href="https://app.masfacil.com.ar/register" data-cta="registro_multi">Probar gratis 30 días</a>
         <div class="plan-foot">Sin tarjeta · Cancelás cuando quieras</div>
       </div>
     </div>
-    <p class="pricing-more">¿Sos estudio contable o tenés más de cinco monotributistas? <a href="mailto:info@masfacil.com.ar">Escribinos</a> y lo armamos a medida.</p>
+    <p class="pricing-more">¿Sos estudio contable o tenés más de cinco monotributistas? <a href="#mas-de-uno">Agendá una demo</a> y lo armamos a medida.</p>
+  </div>
+</section>
+
+<section class="door" id="mas-de-uno">
+  <div class="wrap">
+    <div class="door-head">
+      <div class="kicker">Te la mostramos</div>
+      <h2>¿Tenés más de un monotributista, sos Responsable Inscripto o contador?</h2>
+      <p class="lead">Tu caso tiene más vueltas que una cuenta sola. Elegís un horario y te mostramos la app por videollamada, con un ejemplo como el tuyo.</p>
+    </div>
+    <div class="door-grid">
+      <a class="door-card" href="https://app.masfacil.com.ar/demo/agendar?tipo=multiple" data-cta="agendar_multiple">
+        <h3>Más de un monotributista</h3>
+        <p>Un emprendimiento que factura con varios CUIT: cada cobro va al monotributista que corresponde y cada uno tiene su control de categoría.</p>
+        <span class="door-go">Agendá una demo →</span>
+      </a>
+      <a class="door-card" href="https://app.masfacil.com.ar/demo/agendar?tipo=ri" data-cta="agendar_ri">
+        <h3>Responsable Inscripto</h3>
+        <p>Facturas A y B con IVA desde tus cobros, en la misma operación.</p>
+        <span class="door-go">Agendá una demo →</span>
+      </a>
+      <a class="door-card" href="https://app.masfacil.com.ar/demo/agendar?tipo=contador" data-cta="agendar_contador">
+        <h3>Contador o estudio</h3>
+        <p>Tus clientes monotributistas en un solo panel: lo facturado, la categoría y los avisos de cada uno.</p>
+        <span class="door-go">Agendá una demo →</span>
+      </a>
+    </div>
+    <p class="door-alt">¿Preferís escribirnos? <a href="https://wa.me/5491125051067?text=Hola%2C%20quiero%20que%20me%20muestren%20Facturo%20M%C3%A1s%20F%C3%A1cil%20para%20mi%20caso." target="_blank" rel="noopener" data-wa="segunda_puerta">Hablemos por WhatsApp</a></p>
   </div>
 </section>
 
@@ -518,8 +575,8 @@ h2{font-size:34px;font-weight:800}
   <div class="wrap">
     <h2>Probalo con tus cobros de este mes</h2>
     <p>Treinta días sin cargo, sin tarjeta y con facturas reales en ARCA.</p>
-    <a class="btn btn-primary" href="https://app.masfacil.com.ar/register">Crear mi cuenta</a>
-    <p class="hero-note">¿Ya tenés cuenta? <a href="https://app.masfacil.com.ar/ui/login" style="text-decoration:underline">Ingresar</a></p>
+    <a class="btn btn-primary" href="https://app.masfacil.com.ar/register" data-cta="registro_final">Crear mi cuenta</a>
+    <p class="hero-note">¿Querés verla antes? <a href="https://app.masfacil.com.ar/demo" data-cta="demo_final" style="text-decoration:underline">Probá la demo</a> · ¿Ya tenés cuenta? <a href="https://app.masfacil.com.ar/ui/login" style="text-decoration:underline">Ingresar</a></p>
   </div>
 </section>
 </main>
@@ -536,7 +593,12 @@ h2{font-size:34px;font-weight:800}
   </div>
 </footer>
 
-<div class="sticky" id="sticky"><a class="btn btn-primary" href="https://app.masfacil.com.ar/register">Probar gratis 30 días</a></div>
+<div class="sticky" id="sticky"><div class="sticky-in">
+  <a class="btn btn-primary" href="https://app.masfacil.com.ar/demo" data-cta="demo_sticky">Probá la demo</a>
+  <a class="btn btn-ghost" href="https://app.masfacil.com.ar/register" data-cta="registro_sticky">Empezá gratis</a>
+</div></div>
+
+<a href="https://wa.me/5491125051067?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20de%20Facturo%20M%C3%A1s%20F%C3%A1cil%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener" class="wa-float" data-wa="flotante" aria-label="Escribinos por WhatsApp"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.08-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01c-1.52 0-3.02-.41-4.32-1.18l-.31-.18-3.21.84.86-3.13-.2-.32a8.2 8.2 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.23-8.22 8.23z"/></svg><span>WhatsApp</span></a>
 
 <script>
 (function(){
@@ -640,9 +702,36 @@ h2{font-size:34px;font-weight:800}
     var past=y>hero.offsetTop+hero.offsetHeight-120;
     var inCalc=y+h>calcS.offsetTop+200&&y<calcS.offsetTop+calcS.offsetHeight-200;
     var inCta=y+h>cta.offsetTop+100;
-    st.classList.toggle('show',past&&!inCalc&&!inCta);
+    var on=past&&!inCalc&&!inCta;
+    st.classList.toggle('show',on);
+    document.body.classList.toggle('sticky-on',on);
   }
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+</script>
+
+<script>
+// De dónde viene cada contacto. WhatsApp no deja rastro en ningún lado si no
+// se registra el click; los botones de demo, registro y agendar van con el
+// prefijo «cta_» para contarse aparte de los de WhatsApp en el panel.
+(function () {
+  function registrar(boton) {
+    try {
+      var datos = JSON.stringify({ origen: 'landing', boton: boton });
+      // sendBeacon no demora la navegación y va como texto plano para que el
+      // navegador no haga una consulta previa de permisos.
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon('https://app.masfacil.com.ar/clicks',
+                             new Blob([datos], { type: 'text/plain' }));
+      }
+    } catch (e) { /* nunca debe impedir el click */ }
+  }
+  document.querySelectorAll('[data-wa]').forEach(function (el) {
+    el.addEventListener('click', function () { registrar(el.getAttribute('data-wa') || 'whatsapp'); });
+  });
+  document.querySelectorAll('[data-cta]').forEach(function (el) {
+    el.addEventListener('click', function () { registrar('cta_' + el.getAttribute('data-cta')); });
+  });
 })();
 </script>
 </body>
