@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/capiaf", "destination": "/?red=capiaf", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/", "destination": "https://trabajo-mas-facil-uzk6zjlax-yy3roxz8-ao.expo.app/" },
     { "source": "/:path*", "destination": "https://trabajo-mas-facil-uzk6zjlax-yy3roxz8-ao.expo.app/:path*" }
