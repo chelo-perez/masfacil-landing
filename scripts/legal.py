@@ -1,7 +1,7 @@
 # Genera las páginas legales de Trabajo Más Fácil a partir de los .md del repo de la app.
 # Uso: python3 scripts/legal.py <carpeta docs/play-store de la app>
 import html, os, re, sys
-SRC = sys.argv[1]
+SRC = sys.argv[1] if len(sys.argv) > 1 and __name__ == '__main__' else None
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'trabajo')
 PAGES = [('politica-de-privacidad.md', 'privacidad', 'Política de privacidad'),
          ('terminos-y-condiciones.md', 'terminos', 'Términos y condiciones'),
@@ -33,6 +33,7 @@ def convert(md):
             while len(lists) < level: lists.append(kind); out.append(f'<{kind}>')
             close_lists(level); out.append('<li>' + inline(m.group(3)) + '</li>'); continue
         if not line.strip(): flush(); close_lists(); continue
+        if line.startswith('### '): flush(); close_lists(); out.append('<h3>' + inline(line[4:]) + '</h3>'); continue
         if line.startswith('## '): flush(); close_lists(); out.append('<h2>' + inline(line[3:]) + '</h2>'); continue
         if line.startswith('# '): flush(); close_lists(); continue  # el título va en la cabecera
         para.append(line.strip())
@@ -77,8 +78,12 @@ footer{{text-align:center;color:var(--light);font-size:13px;padding:0 20px 40px}
 </body></html>
 '''
 
-for src, slug, title in PAGES:
-    md = open(os.path.join(SRC, src), encoding='utf-8').read()
-    tabs = ''.join(f'<a href="/trabajo/{s}"{" class=\"on\"" if s == slug else ""}>{t}</a>' for _, s, t in PAGES)
-    open(os.path.join(OUT, f'{slug}.html'), 'w', encoding='utf-8').write(TEMPLATE.format(title=title, tabs=tabs, body=convert(md)))
-    print('trabajo/' + slug + '.html')
+def build(pages, src_dir):
+    for src, slug, title in pages:
+        md = open(os.path.join(src_dir, src), encoding='utf-8').read()
+        tabs = ''.join(f'<a href="/trabajo/{s}"{" class=\"on\"" if s == slug else ""}>{t}</a>' for _, s, t in pages)
+        open(os.path.join(OUT, f'{slug}.html'), 'w', encoding='utf-8').write(TEMPLATE.format(title=title, tabs=tabs, body=convert(md)))
+        print('trabajo/' + slug + '.html')
+
+if __name__ == '__main__':
+    build(PAGES, SRC)
